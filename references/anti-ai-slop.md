@@ -5,6 +5,23 @@ blocker requires repair or an explicit product reason.
 
 ## Blockers
 
+### Prompt/reference look development
+
+- A visually styled request was rendered from memory without preserving the
+  verbatim prompt, extracting a prompt fingerprint, and searching for precise
+  role-specific art references.
+- Search thumbnails or attractive near-matches were accepted without full-size
+  inspection, source/query provenance, a candidate scorecard, and explicit
+  reference roles.
+- Approved references conflict with literal prompt requirements or with each
+  other, creating an incoherent style mixture.
+- Palette, material, lighting, camera, shader, tone-mapping, fog, or filter
+  choices have no entry in the render translation ledger.
+- A generic toon, pastel, neon, cinematic, CRT, bloom, or LUT preset replaces
+  reference-backed rendering decisions.
+- The final browser render has no role-specific side-by-side comparison against
+  the approved art-reference pack.
+
 ### Reference fidelity
 
 - A named game, world, brand, product, character, or IP was rendered from memory
@@ -95,6 +112,8 @@ Answer from the rendered frame:
 8. Is there meaningful foreground, midground, and background depth?
 9. Does mobile preserve the same fantasy rather than merely shrink desktop?
 10. Is the memorable moment created by the world itself?
+11. Which approved reference role proves each palette, material, light, shader,
+    tone, and filter decision visible in the frame?
 
 ## Negative Baseline Lesson
 

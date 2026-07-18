@@ -1,6 +1,6 @@
 ---
 name: eazo-threejs-director
-description: Use when building or directing a realtime 3D website, game, product viewer, spatial interface, simulation, or interactive scene with Three.js, R3F, or WebGL, especially when the request names an existing visual world, game, brand, character, product, or other IP whose appearance or play must be faithfully reproduced.
+description: Use when building or directing a realtime 3D website, game, product viewer, spatial interface, simulation, or interactive scene with Three.js, R3F, or WebGL, especially when the prompt specifies a visual style, palette, mood, art reference, existing world, game, brand, character, product, or other IP whose appearance or play must be faithfully reproduced.
 ---
 
 # Eazo Three.js Director
@@ -23,8 +23,12 @@ Deliver one working experience that:
 - works on desktop and mobile, including safe areas and touch controls;
 - has been run, viewed, exercised, captured, measured, and repaired in a real
   browser.
+- stores the user's verbatim visual prompt, prompt fingerprint, searched art
+  references, and reference-to-render decisions before look development;
 - stores source-backed reference memory inside the project whenever a named
   world, work, product, character, or IP defines visual truth;
+- proves palette, materials, lighting, shader, tone, and filter choices against
+  role-assigned art references rather than agent taste or a generic preset;
 - proves reference fidelity with comparable captures rather than treating a
   passing build, WebGL check, or attractive self-authored frame as evidence;
 - for games, delivers a mature playable loop with decisions, escalation,
@@ -33,6 +37,30 @@ Deliver one working experience that:
 Build the product, not a landing page that describes the product. Do not ask
 about choices that can be inferred from the request, references, genre, or
 existing repository.
+
+## Prompt-Locked Look Development
+
+Every visually directed request is prompt-locked, including original requests
+that name no existing IP. Before choosing palette, material response, lighting,
+fog, shader technique, tone mapping, or postprocessing:
+
+1. preserve the user's verbatim prompt and extract a prompt fingerprint without
+   replacing literal requirements with style synonyms;
+2. turn the fingerprint into targeted image search queries for overall art
+   direction, palette, form/material, lighting, camera/composition, and
+   shader/postprocessing grammar;
+3. inspect full-resolution candidates, score semantic fit, reject conflicts,
+   and assign each approved image one or more explicit reference roles;
+4. write palette measurements and a render translation ledger in the project
+   visual bible;
+5. calibrate the live render in neutral-to-styled passes and compare it
+   side-by-side with the approved role references.
+
+Use one coherent anchor plus the smallest supporting pack that covers missing
+roles. If no single image matches the whole prompt, combine compatible
+role-specific references instead of accepting a near-match or letting one
+reference silently override the user. Follow
+`references/prompt-reference-lookdev.md`.
 
 ## Reference-Locked Requests
 
@@ -91,6 +119,7 @@ Read only the references needed for the task, but never skip the required set.
 **Always read:**
 
 - `references/director-workflow.md`
+- `references/prompt-reference-lookdev.md`
 - `references/design-dna-3d.md`
 - `references/procedural-vs-model.md`
 - `references/anti-ai-slop.md`
@@ -130,9 +159,11 @@ assets, current routes, and dirty worktree state. For the official Eazo
 template, run its cleanup command when starting from untouched demo content.
 Preserve existing user work and platform integrations.
 
-If the request is reference-locked, research and persist the reference memory
-now. Do not postpone sources until after blockout, model generation, palette,
-materials, or postprocessing have already been chosen.
+For every visually directed request, preserve the verbatim prompt, research the
+art-reference pack, and persist prompt/reference memory now. For a named world
+or IP, apply the stricter source rules in `reference-fidelity.md`. Do not
+postpone sources until after blockout, model generation, palette, materials, or
+postprocessing have already been chosen.
 
 ### 2. Resolve the experience
 
@@ -147,6 +178,7 @@ Camera: [relationship, lens family, movement grammar]
 Signature moment: [the one event the user will remember]
 Constraints: [mobile, performance, existing assets, platform]
 Inferences: [art-direction choices not literally requested]
+Prompt lock: [verbatim prompt, fingerprint, approved reference IDs by role]
 Reference lock: [named sources, must-match dimensions, permitted adaptations]
 ```
 
@@ -158,8 +190,9 @@ agree with each other.
 Define role-based color, exposure, contrast, fog, shape language, material
 families, surface wear, environment density, camera grammar, motion weight,
 feedback channels, sound role, postprocessing purpose, UI relationship, and
-desktop/mobile quality tiers. Use measurable ranges and comparisons, not only
-adjectives. Follow `references/design-dna-3d.md`.
+desktop/mobile quality tiers. Derive visual values from the approved references
+and record the mapping in the render translation ledger. Use measurable ranges
+and comparisons, not only adjectives. Follow `references/design-dna-3d.md`.
 
 ### 4. Route every asset
 
@@ -233,8 +266,9 @@ errors, canvas pixel variation, framing, UI bounds, asset requests, draw calls,
 triangles, textures, and practical frame time.
 
 Compare the result with the brief, Design DNA, shot contract, gameplay contract,
-and source-backed visual bible. For reference-locked work, capture comparable
-reference/render pairs and record mismatches in the project comparison log.
+and prompt/source-backed visual bible. Capture comparable role-reference/render
+pairs and record mismatches in the project comparison log; for named work or IP,
+use source-aligned views and the stricter identity comparison gate.
 Repair the highest-impact mismatch and rerun. Continue until no blocker in
 `references/anti-ai-slop.md`, `references/reference-fidelity.md`, or
 `references/gameplay-maturity.md` remains.
@@ -257,6 +291,10 @@ Do not claim completion when any of these are true:
   matters;
 - unrelated surfaces share one material response;
 - selected material classes ignore the properties being tuned;
+- palette, material, lighting, shader, tone-mapping, or filter choices cannot be
+  traced to an approved art-reference role and render translation entry;
+- visual references are merely collected but never inspected, scored, assigned
+  roles, translated into runtime parameters, or compared with the final render;
 - camera behavior is default, unbounded, nauseating, or loses the subject;
 - postprocessing hides weak modeling or destroys readability;
 - generated GLBs have unchecked scale, axis, origin, ground contact, materials,

@@ -14,6 +14,8 @@ words with observable rules, ranges, and relationships.
 ```text
 Emotional promise:
 Visual era / world logic:
+Verbatim prompt path:
+Approved reference IDs by role:
 Named reference source IDs:
 Must-match dimensions:
 Permitted adaptations:
@@ -22,6 +24,7 @@ Forbidden drift:
 COLOR AND LIGHT
 Base/environment:
 Hero separation:
+Measured palette roles + source crops:
 Practical light roles:
 Danger/success/accent roles:
 Exposure / contrast / saturation:
@@ -75,8 +78,14 @@ Sound response:
 Persistent state response:
 
 POSTPROCESSING
-Required effects and purpose:
+Required effects, purpose, and supporting reference IDs/crops:
 Forbidden effects:
+
+RENDER TRANSLATION
+Prompt/reference observations:
+Runtime systems and initial ranges:
+Comparison shots/crops:
+Open mismatches:
 
 UI
 Information hierarchy:
@@ -93,8 +102,8 @@ First degradation steps:
 
 ### Palette by role
 
-Do not derive a scene from five arbitrary hex colors. Assign colors to physical
-and narrative roles:
+Do not derive a scene from five arbitrary hex colors. Sample and measure approved
+reference crops, then assign colors to physical and narrative roles:
 
 - ambient/environment establishes adaptation and atmosphere;
 - key/practical lights explain where illumination comes from;

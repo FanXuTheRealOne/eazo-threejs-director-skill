@@ -1,7 +1,7 @@
 interface:
   display_name: "Eazo Three.js Director"
-  short_description: "Direct reference-faithful, mature realtime 3D experiences"
-  default_prompt: "Use $eazo-threejs-director to build a polished, mature 3D experience and, when I name a world or IP, ground it in official references, Image2, Meshy 6, and browser fidelity checks."
+  short_description: "Turn prompts and references into faithful realtime 3D"
+  default_prompt: "Use $eazo-threejs-director to turn my visual prompt into a reference-locked, playable realtime 3D experience and verify the live render."
 
 policy:
   allow_implicit_invocation: true

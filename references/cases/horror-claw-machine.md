@@ -80,6 +80,33 @@ The horror turnaround must preserve body proportions and attachment points so
 the transformation can use mesh swaps, morph targets, or layered parts without
 teleporting into a different character.
 
+## Reference-to-Render Breakdown
+
+The public [FilthyFrost/claw-machine-game](https://github.com/FilthyFrost/claw-machine-game)
+repository is useful process evidence:
+it keeps a separate `美术参考/` pack, while the live game rebuilds the look with
+procedural geometry, Canvas textures, lights, fog, and a screen-space shader.
+The runtime does not use the reference images as backgrounds.
+
+Do not infer an original generation prompt from those images: the repository
+does not preserve prompt provenance or verifiable image-generation metadata.
+Instead, transfer the observable mapping pattern:
+
+| Reference observation | Runtime translation |
+| --- | --- |
+| compressed retro horror image | reduced internal render size, quantization and Bayer-style dither |
+| unstable CRT/analog surface | scan modulation, rolling band, restrained grain and edge aberration |
+| dirty institutional enclosure | procedural concrete/rust/grime textures with role-specific scale |
+| sick green, rust orange, warning red | fog/background, practical lights, emissive accents, UI color roles |
+| decayed cabinet and glass | separate metal, dark metal, dirty glass, label, and control materials |
+| brief supernatural disruption | event-driven glitch/flash envelope that returns to baseline |
+
+The lesson is not to copy that palette or filter. Preserve the user's verbatim
+prompt, search and approve matching reference roles, then build an equally
+traceable ledger for the requested look. For a warm pink/cream machine, the same
+mechanisms may require soft shadows and restrained highlight rolloff instead of
+CRT degradation.
+
 ## Shot Contract
 
 ### Ready

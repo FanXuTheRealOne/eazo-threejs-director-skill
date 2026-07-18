@@ -71,3 +71,39 @@ test('game requests cannot complete without a mature playable loop and reference
   assert.match(comparisonLog, /Expected reference/);
   assert.match(comparisonLog, /Observed render/);
 });
+
+test('every visual prompt drives reference search and a reference-derived render recipe', async () => {
+  const [skill, workflow, lookdev, antiSlop, manifest, visualBible, comparisonLog] = await Promise.all([
+    read('SKILL.md'),
+    read('references/director-workflow.md'),
+    read('references/prompt-reference-lookdev.md'),
+    read('references/anti-ai-slop.md'),
+    read('assets/reference-memory/reference-manifest.md'),
+    read('assets/reference-memory/visual-bible.md'),
+    read('assets/reference-memory/comparison-log.md'),
+  ]);
+
+  assert.match(skill, /prompt-reference-lookdev\.md/);
+  assert.match(skill, /prompt-locked/i);
+  assert.match(workflow, /verbatim prompt/i);
+  assert.match(workflow, /reference search/i);
+
+  assert.match(lookdev, /prompt fingerprint/i);
+  assert.match(lookdev, /search queries/i);
+  assert.match(lookdev, /candidate scorecard/i);
+  assert.match(lookdev, /reference role/i);
+  assert.match(lookdev, /palette/i);
+  assert.match(lookdev, /shader/i);
+  assert.match(lookdev, /postprocessing/i);
+  assert.match(lookdev, /render translation ledger/i);
+  assert.match(lookdev, /side-by-side/i);
+  assert.match(antiSlop, /verbatim prompt/i);
+  assert.match(antiSlop, /render translation ledger/i);
+
+  assert.match(manifest, /Search query/);
+  assert.match(manifest, /Reference role/);
+  assert.match(visualBible, /Prompt Fingerprint/);
+  assert.match(visualBible, /Palette Measurements/);
+  assert.match(visualBible, /Render Translation Ledger/);
+  assert.match(comparisonLog, /Reference role/);
+});

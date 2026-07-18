@@ -96,3 +96,40 @@ request. It kept all acceptance requirements under deadline pressure:
 It reduced the world size, variant count, animation complexity, content breadth,
 postprocessing, and secondary systems instead of weakening identity, rendering
 grammar, or gameplay maturity. No new rationalization required another rule.
+
+## RED baseline: original style prompt without named IP
+
+### Request
+
+Build a one-shot playable claw-machine game. Make it cute, pink and white, with
+milky cream surfaces and a warm feeling. Do not ask questions.
+
+### Combined pressures
+
+- original art direction, so no named IP triggers the stricter source workflow;
+- subjective adjectives that allow many incompatible visual interpretations;
+- one-shot speed pressure;
+- a technically working 3D scene that can look acceptable without matching the
+  requested material, light, camera, shader, or filter character.
+
+### Observed pre-change gap
+
+The skill required source research only for named references. For original
+subjects it allowed generated mood frames, but did not require preserving the
+verbatim prompt, running targeted art-reference searches, scoring candidates,
+assigning reference roles, measuring palette/value relationships, translating
+references into runtime material/light/shader/post settings, or comparing the
+browser render to each role reference.
+
+An agent could therefore choose a generic pastel/toon treatment from memory,
+add bloom and a warm color grade, and call the result compliant. The build,
+WebGL, mobile, and interaction gates would not catch that visual mismatch.
+
+### GREEN acceptance
+
+A compliant plan must preserve the verbatim prompt; create a prompt fingerprint;
+search separate anchor, palette, form/material, lighting, camera, and render
+queries; score and role-label the candidates; fill palette measurements and the
+render translation ledger; calibrate from neutral output through the minimum
+reference-supported shader/post stack; and capture role-specific side-by-side
+comparisons on desktop and mobile.

@@ -144,11 +144,14 @@ Use browser screenshots rather than relying on a generated mood frame.
 
 ## 7. Reference-Comparison Gate
 
-For any named world, game, product, character, or IP, screenshot review must
-include a `reference-comparison` set. A polished render judged in isolation is
+For every prompt-locked styled experience, screenshot review must include a
+`reference-comparison` set covering each approved reference role. For any named
+world, game, product, character, or IP, the set must additionally use
+authoritative source-aligned states. A polished render judged in isolation is
 not fidelity evidence.
 
-1. Select the official/source target recorded in the reference manifest.
+1. Select the role reference recorded in the manifest; for named references,
+   select the official/source target.
 2. Reproduce its state, camera height, FOV, horizon, subject occupancy, time of
    day, and viewport as closely as the interactive product permits.
 3. Place the source and browser render side-by-side. Add an overlay, silhouette
@@ -157,8 +160,13 @@ not fidelity evidence.
 4. Review geometry/grid and proportions first; then identity features, palette,
    texture filtering and texel scale, material response, light/shadow, fog,
    tone mapping/global grade, camera, and motion/state readability.
-5. Record expected reference, observed render, cause, repair, and recapture path
-   in the project comparison log.
+5. Record reference role, expected reference, observed render, cause, repair,
+   and recapture path in the project comparison log.
+
+For original prompts, compare role-equivalent evidence rather than demanding a
+global pixel match to unrelated geometry. Require traceability: the final
+palette/value balance, material response, lighting, shader behavior, tone
+mapping, fog, and filter intensity must point to the render translation ledger.
 
 For a generated IP model, capture neutral front/right/back/left turntable views
 before styled scene lighting. Feature-count, face, silhouette, pattern, garment,

@@ -1,7 +1,9 @@
 # Lighting and Materials
 
 Build visual quality through coherent physical response and motivated lighting.
-Postprocessing cannot repair undirected look development.
+For a styled prompt, first complete the role references and render translation
+ledger in `prompt-reference-lookdev.md`. Postprocessing cannot repair undirected
+look development.
 
 ## Contents
 
@@ -24,11 +26,13 @@ space. For current Three.js/R3F:
 - avoid manually gamma-correcting textures already handled by the loader.
 
 Start with a neutral look-dev shot before stylizing. Check light and dark values
-on both desktop and mobile displays.
+on both desktop and mobile displays. Compare sampled palette roles and highlight/
+shadow relationships against the approved palette and lighting crops.
 
 ## 2. Light by Role
 
-Use a small number of explainable roles:
+Use a small number of explainable roles. Record the supporting reference IDs and
+crops for every non-neutral role:
 
 - **ambient/environment:** reveals unlit forms without flattening them;
 - **key practical:** dominant fixture/window/sun/machine light;
@@ -107,10 +111,10 @@ certainty without hiding the next playable decision.
 5. practical fixtures and local pools;
 6. surface breakup and wear;
 7. fog and atmosphere;
-8. restrained postprocessing.
+8. restrained, reference-supported postprocessing.
 
-Capture the same camera after each pass. If materials are indistinguishable
-without bloom, fix lighting/materials first.
+Capture the same camera after each pass and update the render translation ledger.
+If materials are indistinguishable without bloom, fix lighting/materials first.
 
 ## 8. Common Failures
 

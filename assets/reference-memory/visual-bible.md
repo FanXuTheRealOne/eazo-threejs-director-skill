@@ -4,6 +4,22 @@ Project:
 Named reference(s):
 Emotional promise:
 
+## Prompt Fingerprint
+
+- Verbatim prompt:
+- Literal subject/product and interaction:
+- Style/medium/era:
+- Shape and proportion:
+- Palette and temperature:
+- Materials and surfaces:
+- Lighting and atmosphere:
+- Camera and composition:
+- Rendering, shader, and filter grammar:
+- Motion/weight:
+- Explicit exclusions:
+- Evidence-backed decisions:
+- Agent inferences:
+
 ## Must-Match Contract
 
 | Dimension | Source IDs | Observable target | Allowed adaptation | Validation evidence |
@@ -17,6 +33,16 @@ Emotional promise:
 | fog/background |  |  |  |  |
 | camera/FOV/horizon |  |  |  |  |
 | UI density/rhythm |  |  |  |  |
+
+## Palette Measurements
+
+| Role | Source IDs/crop | sRGB samples | Hue/value/chroma relationship | Frame-area share | Runtime mapping | Validation crop |
+| --- | --- | --- | --- | --- | --- | --- |
+| environment base |  |  |  |  |  |  |
+| hero base |  |  |  |  |  |  |
+| secondary |  |  |  |  |  |  |
+| interaction accent |  |  |  |  |  |  |
+| warning/result |  |  |  |  |  |  |
 
 ## Identity Lock
 
@@ -45,6 +71,17 @@ Emotional promise:
 - Fog/background:
 - Global grade and forbidden effects:
 
+## Render Translation Ledger
+
+| Reference role/IDs | Observed evidence | Runtime system | Initial values/range | Quality fallback | Comparison shot/crop | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| palette |  |  |  |  |  | open |
+| material |  |  |  |  |  | open |
+| lighting |  |  |  |  |  | open |
+| camera |  |  |  |  |  | open |
+| shader/render |  |  |  |  |  | open |
+| tone/postprocessing |  |  |  |  |  | open |
+
 ## Required Key Shots
 
 | State | Viewport | Camera/target/FOV | Source IDs | Output path |
@@ -54,4 +91,3 @@ Emotional promise:
 | signature |  |  |  |  |
 | result |  |  |  |  |
 | mobile |  |  |  |  |
-

@@ -4,6 +4,10 @@ Use shaders to express a specific material, transition, or atmospheric behavior.
 Use postprocessing to unify the rendered image. Neither replaces geometry,
 lighting, composition, or material separation.
 
+For a visually styled prompt, no shader or post effect enters the stack until
+`prompt-reference-lookdev.md` records the reference role/crop, observed behavior,
+runtime translation, valid range, fallback, and comparison shot.
+
 ## Contents
 
 - [Tool and shader contract](#1-choose-the-smallest-tool)
@@ -29,6 +33,8 @@ Before coding, specify:
 
 ```text
 Visual purpose:
+Reference role/IDs and crop:
+Observed reference behavior:
 Geometry/domain:
 Uniforms and valid ranges:
 Vertex deformation:
@@ -38,6 +44,7 @@ Transparency/depth/blending:
 Color-space and tone-mapping path:
 Mobile fallback:
 Performance risk:
+Comparison shot/crop:
 ```
 
 Keep time, resolution, pointer, camera, and state uniforms centralized. Update
@@ -82,7 +89,7 @@ allocate new objects every frame.
 
 ## 5. Postprocessing Stack
 
-Add the fewest effects that serve the Design DNA:
+Add the fewest effects that serve the Design DNA and approved render references:
 
 - antialiasing/SMAA when needed by the chosen renderer path;
 - ambient occlusion only when it materially improves contact/detail and budget
@@ -95,6 +102,7 @@ Add the fewest effects that serve the Design DNA:
   fallback.
 
 Order matters. Verify the final stack's color output and transparent objects.
+If an effect has no visible evidence in the approved reference pack, omit it.
 
 ## 6. Event-Driven Intensity
 
