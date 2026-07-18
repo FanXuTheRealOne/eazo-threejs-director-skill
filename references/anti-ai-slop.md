@@ -5,6 +5,19 @@ blocker requires repair or an explicit product reason.
 
 ## Blockers
 
+### Reference fidelity
+
+- A named game, world, brand, product, character, or IP was rendered from memory
+  without an official/first-party source manifest and project visual bible.
+- "Inspired by" is used to excuse different geometry, palette, texture/pixel
+  grammar, material response, lighting, fog, tone mapping, camera, or play.
+- A recognizable organic/branded 3D subject was approximated with primitives,
+  recolors, or text-to-3D when real source photography, Image2, and Meshy 6
+  Multi-Image to 3D were available.
+- Image2 changed identity features while inventing missing views, or a generated
+  GLB was never compared in a neutral turntable.
+- The final frame has no comparable source/render capture or mismatch log.
+
 ### Composition
 
 - The requested app opens on a marketing card, feature list, or instructions
@@ -50,6 +63,11 @@ blocker requires repair or an explicit product reason.
 - Success/failure cannot recover or reset.
 - Touch controls conflict with browser scroll/zoom or safe areas.
 - Controls resize or shift as dynamic labels change.
+- A game consists of locomotion plus one repeated action or linear fetch quest,
+  with no meaningful decision, escalation, consequence, progression,
+  failure/recovery, or replay variation.
+- NPCs are decoration with dialogue but no reaction to player action or world
+  state.
 
 ### Verification
 
@@ -59,6 +77,8 @@ blocker requires repair or an explicit product reason.
 - Console, shader, asset-loading, or WebGL errors remain.
 - "Build passed," line count, dependency count, or unit-test count is used as
   evidence of visual quality.
+- A WebGL, performance, or screenshot-existence pass is used as evidence that a
+  named reference was faithfully reproduced.
 
 ## Quality Questions
 

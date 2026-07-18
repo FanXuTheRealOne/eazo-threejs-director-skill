@@ -6,10 +6,10 @@ them to make decisions, not to delay implementation.
 
 ## Contents
 
-- [Audit, brief, and Design DNA](#0-repository-audit)
-- [Assets, visual development, and shots](#3-asset-and-system-decomposition)
-- [Interaction and implementation passes](#6-interaction-contract)
-- [Verification and delivery](#8-verification-loop)
+- [Audit, references, brief, and Design DNA](#0-repository-audit)
+- [Assets, visual development, and shots](#4-asset-and-system-decomposition)
+- [Interaction and implementation passes](#7-interaction-contract)
+- [Verification and delivery](#9-verification-loop)
 
 ## 0. Repository Audit
 
@@ -25,7 +25,29 @@ Inspect:
 
 **Gate:** explain which contracts must remain untouched.
 
-## 1. Production Brief
+## 1. Reference Lock and Project Memory
+
+If the request names an existing game, world, artwork, brand, product,
+character, collectible, person, vehicle, or other recognizable subject, follow
+`reference-fidelity.md` before writing the production brief:
+
+1. search the web for real high-resolution official or first-party sources;
+2. copy the templates from `assets/reference-memory/` into
+   `docs/references/<project-slug>/`;
+3. complete `docs/references/<project-slug>/reference-manifest.md` and
+   `visual-bible.md`; complete `gameplay-contract.md` for games;
+4. record source confidence, must-match dimensions, forbidden drift, permitted
+   adaptations, and rights/retention notes;
+5. save authorized source images, generated Image2 views, model turntables, and
+   comparison captures under the same stable project-memory directory.
+
+Do not choose a palette, filter, material family, texture sampling mode, camera,
+model prompt, or gameplay simplification before this evidence exists.
+
+**Gate:** every reference-defining visual and interaction decision points to a
+recorded source or an explicit user-authorized adaptation.
+
+## 2. Production Brief
 
 Resolve:
 
@@ -44,7 +66,7 @@ useful than "cool and cinematic."
 
 **Gate:** describe what the user sees and does in the first five seconds.
 
-## 2. Design DNA
+## 3. Design DNA
 
 Fill the contract in `design-dna-3d.md`. Establish numeric camera and rendering
 ranges plus material and motion rules.
@@ -52,7 +74,7 @@ ranges plus material and motion rules.
 **Gate:** the palette, camera, material, motion, and environment rules all serve
 the same emotional promise.
 
-## 3. Asset and System Decomposition
+## 4. Asset and System Decomposition
 
 List every visible system by first-frame importance. Route it using
 `procedural-vs-model.md`. For complex heroes, identify separate controllable
@@ -69,24 +91,26 @@ Order asset effort:
 **Gate:** no high-value organic or silhouette-critical hero is left as a vague
 "make it with primitives" task.
 
-## 4. Visual Development
+## 5. Visual Development
 
-Use existing user references first. When visual truth is missing, follow
-`image2-art-pipeline.md`:
+Use existing user references first. For named IP, use real source images and
+follow the source-backed Image2 route in `reference-fidelity.md` and
+`image2-art-pipeline.md`. For original subjects, establish visual truth through:
 
 1. generate mood-frame candidates;
 2. select/extract a stable visual DNA;
 3. generate orthographic and material/state references for hero assets;
 4. generate key shots for camera and lighting;
 5. generate textures/decals only with known UV and tiling needs;
-6. generate GLBs from consistent references when models outperform code.
+6. generate GLBs from consistent references when models outperform code; use
+   Meshy 6 Multi-Image to 3D for recognizable named subjects.
 
 Inspect all generated output. Regenerate weak views rather than coding around a
 bad reference.
 
 **Gate:** the default and signature shots have a visual target.
 
-## 5. Shot Contract
+## 6. Shot Contract
 
 For each required shot record:
 
@@ -106,7 +130,7 @@ and mobile states. Use `camera-language.md`.
 
 **Gate:** every camera transition has a trigger, target, duration, and recovery.
 
-## 6. Interaction Contract
+## 7. Interaction Contract
 
 Describe a state machine rather than disconnected event handlers:
 
@@ -124,9 +148,14 @@ Add product-specific substates. For every transition define:
 - completion condition;
 - cancellation, reset, and interruption behavior.
 
-**Gate:** there is no dead input and no state from which the user cannot recover.
+For games, complete the maturity contract in `gameplay-maturity.md` and exercise
+the three-minute slice. Controls plus a fetch counter do not satisfy this gate.
 
-## 7. Implementation Passes
+**Gate:** there is no dead input or unrecoverable state, and the loop contains a
+meaningful decision, escalation, consequence, reward/progression, recovery, and
+replay/continue path.
+
+## 8. Implementation Passes
 
 Build in visually testable slices:
 
@@ -140,10 +169,14 @@ with the final relative scale. Capture desktop and mobile.
 Implement the complete core interaction with proxy geometry and explicit states.
 Verify the user can start, act, receive a result, and reset.
 
-### Pass C: look development
+### Pass C: source-locked look development
 
 Replace hero assets, establish material families, practical lights, shadow logic,
 fog, background depth, and calibrated tone mapping.
+
+For named references, capture the same camera as the target and repair geometry,
+palette, texture filtering/texel scale, material, lighting, fog, tone mapping,
+and identity drift before proceeding.
 
 ### Pass D: signature moment
 
@@ -158,7 +191,7 @@ errors, pause, reduced motion, responsive HUD, and quality tiers.
 **Gate after each pass:** run the app and inspect the rendered result. Fix framing
 or visual direction before increasing detail.
 
-## 8. Verification Loop
+## 9. Verification Loop
 
 Follow `verification.md`. The repair order is:
 
@@ -172,12 +205,18 @@ Follow `verification.md`. The repair order is:
 
 Do not tune tiny details while the camera, silhouette, or core loop is wrong.
 
-## 9. Delivery
+Reference-locked work also requires side-by-side captures and an updated
+`comparison-log.md`. A build, WebGL, performance, or self-authored screenshot
+pass cannot override a source mismatch.
+
+## 10. Delivery
 
 Leave the dev server running when a server is required. Report:
 
 - URL;
 - core interaction and control map;
 - generated/local assets and their locations;
+- project reference-memory and comparison-evidence paths;
+- the real gameplay slice completed and its recovery/replay result;
 - verification commands and key measured results;
 - known limitations that remain after repair.

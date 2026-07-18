@@ -9,6 +9,12 @@ Image2 reference generation, procedural-vs-model routing, camera choreography,
 materials, lighting, motion, physics, sound, performance, and browser-based
 visual QA.
 
+When a prompt names an existing game, visual world, brand, product, character,
+or collectible, the skill switches to a reference-locked workflow: official
+source research, persistent project memory, source-backed Image2 turnarounds,
+Meshy 6 Multi-Image to 3D, mature gameplay gates, and side-by-side source/render
+verification.
+
 It targets the official Eazo Creator React/Next.js template, while most of the
 art-direction and realtime-engineering guidance also applies to other R3F or
 Three.js projects.
@@ -23,17 +29,22 @@ Given a prompt such as:
 the skill directs the agent through one autonomous production loop:
 
 1. Inspect the repository and preserve platform contracts.
-2. Convert the prompt into a production brief and 3D Design DNA.
-3. Decide whether each asset should be procedural, generated as an image or GLB,
+2. For named references/IP, research official high-resolution sources and save a
+   manifest, visual bible, gameplay contract, and comparison log in the project.
+3. Convert the prompt and reference locks into a production brief and 3D Design DNA.
+4. Decide whether each asset should be procedural, generated as an image or GLB,
    built as a hybrid, rendered in DOM, or produced as audio.
-4. Generate consistent mood frames, orthographic turnarounds, material sheets,
-   state sheets, and key shots with Image2 when they add value.
-5. Decompose complex subjects before 3D generation.
-6. Author the default, action, signature, result, and mobile camera shots.
-7. Build the complete interaction and feedback state machine.
-8. Implement with current R3F/Three.js patterns and appropriate physics.
-9. Run the app, capture desktop/mobile/signature states, detect blank WebGL
-   output, inspect telemetry, and repair the highest-impact visual mismatch.
+5. Generate consistent mood frames, source-backed orthographic turnarounds,
+   material sheets, state sheets, and key shots with Image2.
+6. Decompose complex subjects and use Meshy 6 Multi-Image to 3D when exact
+   recognizable appearance matters.
+7. Author the default, action, signature, result, and mobile camera shots.
+8. Build a mature gameplay/interaction contract with decisions, escalation,
+   consequences, progression, recovery, and replay.
+9. Implement with current R3F/Three.js patterns and appropriate physics.
+10. Run the app, capture desktop/mobile/signature states, compare named
+    references side-by-side, inspect telemetry, and repair the highest-impact
+    fidelity or gameplay mismatch.
 
 ## Design Goals
 
@@ -48,6 +59,13 @@ the skill directs the agent through one autonomous production loop:
 - Distinct material behavior, motivated practical lights, and intentional depth.
 - Stable desktop/mobile interaction, quality tiers, and reduced-motion behavior.
 - Browser evidence as a completion requirement.
+- Named references are observable constraints, not generic inspiration.
+- Real high-resolution identity sources precede Image2; approved front/side/back
+  views precede Meshy 6 generation.
+- Fewer source-faithful IP variants are preferred over recolors or primitive
+  approximations.
+- A playable game must sustain a representative three-minute slice and cannot
+  rely on locomotion plus a linear fetch quest.
 
 ## Routing Examples
 
@@ -58,6 +76,7 @@ the skill directs the agent through one autonomous production loop:
 | Horror claw machine | Procedural cabinet/claw plus generated characters and Rapier prize physics |
 | Particle music visualizer | Procedural geometry, instancing, shaders, and audio analysis |
 | Organic character showcase | Rigged GLB plus procedural presentation, camera, lighting, and effects |
+| Named character inside a named game world | Official source memory + source-backed Image2 turnaround + Meshy 6 multi-image GLB + reference-locked world/render/gameplay contract |
 
 The included cases are reasoning examples, not visual templates. They are
 designed to preserve quality while preventing every generated app from inheriting
@@ -122,7 +141,9 @@ interactive 3D viewer with authored detail shots and material presets.
 The skill assumes the coding agent can call an image generator such as Image2
 and a 3D asset generator when available. It still routes each requirement
 independently; image or model generation is not forced when procedural code is
-the stronger solution.
+the stronger solution. Named organic or branded subjects are the exception: use
+the source-backed Image2 and Meshy 6 route unless the user provides a faithful
+model or explicitly authorizes reinterpretation.
 
 ## Repository Structure
 
@@ -133,6 +154,8 @@ the stronger solution.
 |-- references/
 |   |-- requirement-router.md        # 2D, direct Three.js, R3F, and hybrid routing
 |   |-- director-workflow.md         # End-to-end production phases and gates
+|   |-- reference-fidelity.md        # Named world/IP research, memory, and fidelity gates
+|   |-- gameplay-maturity.md         # Decisions, escalation, recovery, and replay
 |   |-- design-dna-3d.md             # Visual, camera, motion, and quality contract
 |   |-- procedural-vs-model.md       # Asset strategy and complex-subject breakdown
 |   |-- image2-art-pipeline.md        # Mood frames, turnarounds, sheets, textures
@@ -147,6 +170,8 @@ the stronger solution.
 |   |-- verification.md               # Screenshot, interaction, and WebGL QA loop
 |   `-- cases/                        # Claw machine, backrooms, and racer few-shots
 |-- assets/eazo-r3f-starter/          # Copyable Eazo/R3F scene architecture
+|-- assets/reference-memory/          # Manifest, visual, gameplay, comparison templates
+|-- tests/                            # Skill contract and pressure scenarios
 `-- scripts/                          # Static scan, viewport capture, WebGL verification
 ```
 
@@ -232,9 +257,12 @@ not prove that the frame is well composed or that interaction feels right.
 
 Completion requires direct inspection of the rendered scene, responsive
 captures, signature-state evidence, material and camera review, and a repair
-loop. The positive benchmark is intentional visual density and coordinated
-feedback; the negative benchmark is generic primitives, tiny heroes, flat
-materials, default cameras, and postprocessing used to hide weak scene design.
+loop. Reference-locked work additionally requires official source evidence,
+identity-safe asset generation, persistent project memory, and comparable
+source/render captures. The positive benchmark is intentional visual density,
+coordinated feedback, mature play, and traceable fidelity; the negative
+benchmark is generic primitives, tiny heroes, flat materials, default cameras,
+linear fetch tasks, and postprocessing used to hide weak scene design.
 
 ## Primary References
 
@@ -242,6 +270,7 @@ materials, default cameras, and postprocessing used to hide weak scene design.
 - [React Three Fiber documentation](https://r3f.docs.pmnd.rs/)
 - [React Three Rapier documentation](https://pmndrs.github.io/react-three-rapier/)
 - [Three.js documentation](https://threejs.org/docs/)
+- [Meshy Multi-Image to 3D API](https://docs.meshy.ai/en/api/multi-image-to-3d)
 
 ## License
 

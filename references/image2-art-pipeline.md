@@ -1,8 +1,11 @@
 # Image2 Art Pipeline
 
 Use image generation as visual development and asset input, not as decoration.
-Do not generate images when the user already supplied sufficient references or
-when procedural geometry has a clear established language.
+For a named IP or exact real subject, first follow `reference-fidelity.md` and
+use Codex Image2 in reference/edit mode. If the user supplied complete,
+consistent multi-view photography, use it directly rather than redrawing it. If
+views are missing, Image2 must extend the sourced identity without redesigning
+it. Text-only invention is reserved for original subjects.
 
 ## Contents
 
@@ -10,6 +13,39 @@ when procedural geometry has a clear established language.
 - [Consistency protocol](#2-consistency-protocol)
 - [Textures and decals](#3-texture-and-decal-generation)
 - [3D handoff and failure modes](#4-3d-generation-handoff)
+
+## 0. Source-Backed Turnaround for Named IP
+
+Before prompting Image2:
+
+1. collect real high-resolution official/first-party photographs and record them
+   in the project's reference manifest;
+2. define an identity lock for silhouette, feature counts, landmark ratios,
+   color/pattern zones, materials, asymmetry, clothing, and accessories;
+3. select one primary identity image and supporting profile/rear evidence;
+4. use the actual images as references to Image2 rather than describing the IP
+   from memory;
+5. request front, left or right side, and back views at identical scale, neutral
+   pose, one ground line, neutral light, and clean background;
+6. generate separate single-view images when the downstream 3D generator expects
+   one object per input image.
+
+Prompt contract:
+
+```text
+Using the attached real source photographs as immutable identity references,
+create an orthographic [front|side|back] model view of the exact same subject.
+Preserve [identity-lock list] exactly. Do not redesign, stylize, beautify,
+recolor, add or remove features, change feature counts, alter proportions,
+replace clothing/accessories, or invent hidden details unsupported by the source.
+Match the approved views at identical scale and ground line. Neutral pose,
+85-120 mm orthographic-like camera, flat neutral studio light, clean background,
+single unobstructed object, no text or labels.
+```
+
+Compare every generated view to the source pack. A changed face, ear, tooth,
+limb, seam, pattern, material boundary, accessory, or color zone blocks 3D
+generation. Regenerate the weak view; do not average conflicting views.
 
 ## 1. Build a Reference Pack
 
@@ -38,8 +74,8 @@ Do not copy accidental artifacts.
 
 ### B. Orthographic turnaround
 
-Use for characters, vehicles, machines, exact props, and any hero going to a 3D
-generator.
+Use for original characters, vehicles, machines, exact props, and any hero going
+to a 3D generator. For named IP, use the stricter source-backed turnaround above.
 
 Prompt template:
 
@@ -145,6 +181,48 @@ Provide:
 Inspect the returned model in a neutral turntable before integrating it into the
 styled scene.
 
+### Meshy 6 Multi-Image contract for named IP
+
+For a recognizable subject, use Meshy 6 Multi-Image to 3D rather than a
+text-to-3D approximation. The current API accepts 1 to 4 images of the same
+object. Submit separate consistent front, side, back, and optional opposite-side
+images through `POST /openapi/v1/multi-image-to-3d`.
+
+Recommended starting payload for reference fidelity:
+
+```json
+{
+  "image_urls": ["<front>", "<right-side>", "<back>", "<left-side>"],
+  "ai_model": "meshy-6",
+  "should_texture": true,
+  "enable_pbr": true,
+  "image_enhancement": false,
+  "remove_lighting": true,
+  "target_formats": ["glb"]
+}
+```
+
+- `image_enhancement: false` prevents style processing when the approved Image2
+  views already encode the exact appearance.
+- `remove_lighting: true` is appropriate when the model will be lit in Three.js;
+  verify the unlit base color still matches the source.
+- Enable PBR only for material families that benefit from it; a deliberately
+  pixel/unlit subject may need a simpler material adapter after export.
+- Set topology, polygon, texture, pose, scale/origin, and rig requirements from
+  the target device and gameplay contract rather than maximizing every option.
+- Keep the API key in a process environment variable. Never put it in prompts,
+  manifests, generated asset metadata, source control, or screenshots.
+
+After generation, render front/right/back/left neutral turntable captures.
+Compare silhouette masks, identity landmarks, feature counts, color/pattern
+zones, material boundaries, ground contact, and scale against the approved
+Image2 views. Loading successfully is not acceptance.
+
+Official references:
+
+- <https://docs.meshy.ai/en/api/multi-image-to-3d>
+- <https://help.meshy.ai/en/articles/12634481-how-to-use-multi-view>
+
 ## 5. Failure Modes
 
 - Perspective "three-view" sheets produce mismatched geometry.
@@ -152,5 +230,8 @@ styled scene.
 - Decorative text becomes baked into generated geometry/textures.
 - Multiple mood frames silently redesign the hero.
 - A single front image is treated as enough for a silhouette-critical model.
+- A named IP is sent to text-to-3D even though real source photography exists.
+- Image2 silently changes identity while inventing missing views.
+- A Meshy 6 output is accepted without source-aligned turntable comparison.
 - Generated texture scale conflicts with world units.
 - The Agent accepts a poor generated asset because generation is already done.

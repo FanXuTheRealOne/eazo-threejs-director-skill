@@ -71,7 +71,27 @@ Before committing to 3D, answer:
 If question 1 has no strong answer, use 2D. If questions 2-5 are unanswered,
 the problem is not yet directed enough to code.
 
-## 5. Output Decision
+## 5. Named Subject Fidelity Gate
+
+Rendering-layer choice and asset-source choice are separate decisions. A subject
+can belong in a Three.js experience without being suitable for procedural
+Three.js modeling.
+
+If the user clearly requests a specific existing person, organic character,
+collectible, product, vehicle, or branded object as 3D:
+
+- keep Three.js/R3F for the interactive world, camera, lights, physics, effects,
+  colliders, and repeated systems;
+- use real high-resolution official/first-party images as identity truth;
+- use Codex Image2 to make an identity-locked front/side/back turnaround;
+- use Meshy 6 Multi-Image to 3D for the recognizable render asset;
+- use procedural geometry only for proxies, simple controllable parts, distant
+  LODs, or subjects whose identity is truly geometric.
+
+Do not downgrade a specific IP to spheres, capsules, recolors, or text-to-3D
+because the surrounding experience uses procedural geometry.
+
+## 6. Output Decision
 
 Record the route in one sentence:
 
@@ -80,4 +100,3 @@ Use [R3F/direct Three/2D/hybrid] because [spatial requirement]; build
 [archetype] with [camera relationship], and reserve [DOM/image/model] for
 [specific responsibilities].
 ```
-

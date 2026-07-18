@@ -14,6 +14,10 @@ words with observable rules, ranges, and relationships.
 ```text
 Emotional promise:
 Visual era / world logic:
+Named reference source IDs:
+Must-match dimensions:
+Permitted adaptations:
+Forbidden drift:
 
 COLOR AND LIGHT
 Base/environment:
@@ -23,6 +27,7 @@ Danger/success/accent roles:
 Exposure / contrast / saturation:
 Fog color + near/far or density:
 Tone mapping:
+Texture filtering / texel scale:
 
 SHAPE AND DENSITY
 Hero silhouette:
@@ -51,6 +56,7 @@ Look target:
 Movement grammar:
 Shake grammar and maximum envelope:
 Mobile crop:
+Reference-comparison shots:
 
 MOTION
 Weight class:
@@ -150,3 +156,8 @@ Read each section against the emotional promise. Reject contradictions such as:
 - "claustrophobic" with an ultra-wide camera and empty room;
 - "premium product" with uncontrolled grime and fisheye distortion;
 - "fast racer" with no look-ahead, speed cues, or suspension response.
+
+For reference-locked work, also read every section against the project visual
+bible. Reject agent-preferred pastel, toon, neon, cinematic, or PBR treatment
+when the named source uses different geometry, palette, texture/pixel grammar,
+lighting, fog, tone mapping, camera, or motion.

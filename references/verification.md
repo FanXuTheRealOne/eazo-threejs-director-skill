@@ -9,7 +9,7 @@ mobile composition.
 - [Server and capture matrix](#1-start-cleanly)
 - [WebGL and telemetry](#3-webgl-verification)
 - [Interaction and screenshot review](#5-interaction-assertions)
-- [Repair, static scan, and evidence](#7-repair-loop)
+- [Reference comparison, repair, static scan, and evidence](#7-reference-comparison-gate)
 
 ## 1. Start Cleanly
 
@@ -142,7 +142,39 @@ Inspect every capture at full size and thumbnail size:
 
 Use browser screenshots rather than relying on a generated mood frame.
 
-## 7. Repair Loop
+## 7. Reference-Comparison Gate
+
+For any named world, game, product, character, or IP, screenshot review must
+include a `reference-comparison` set. A polished render judged in isolation is
+not fidelity evidence.
+
+1. Select the official/source target recorded in the reference manifest.
+2. Reproduce its state, camera height, FOV, horizon, subject occupancy, time of
+   day, and viewport as closely as the interactive product permits.
+3. Place the source and browser render side-by-side. Add an overlay, silhouette
+   mask, landmark plot, palette sample, or pixel difference where it clarifies a
+   mismatch.
+4. Review geometry/grid and proportions first; then identity features, palette,
+   texture filtering and texel scale, material response, light/shadow, fog,
+   tone mapping/global grade, camera, and motion/state readability.
+5. Record expected reference, observed render, cause, repair, and recapture path
+   in the project comparison log.
+
+For a generated IP model, capture neutral front/right/back/left turntable views
+before styled scene lighting. Feature-count, face, silhouette, pattern, garment,
+or accessory drift is a blocker even if an aggregate image metric looks good.
+
+For a named game's rendering grammar, inspect close crops as well as full frames.
+Linear filtering, smooth gradients, arbitrary PBR shine, bevels, or a global
+pastel/toon/cinematic filter can invalidate a voxel or pixel reference even when
+large-scale composition is similar.
+
+Metrics such as silhouette IoU, landmark offsets, dominant-color distance,
+pixel-diff, or perceptual distance may support comparison. Derive thresholds
+from the reference pack and shot contract; do not invent universal numbers or
+copy proprietary source textures to make a metric pass.
+
+## 8. Repair Loop
 
 For each mismatch write:
 
@@ -158,7 +190,7 @@ Reverification state/viewports:
 Repair camera/scale/light/material hierarchy before secondary props and effects.
 Rerun affected interactions and both responsive viewports.
 
-## 8. Static Smell Scan
+## 9. Static Smell Scan
 
 Run:
 
@@ -170,14 +202,16 @@ Review warnings for unsupported material parameters, per-frame state updates,
 unbounded controls, extreme renderer settings, and missing responsive/full-height
 contracts. Warnings require judgment; they are not substitutes for screenshots.
 
-## 9. Completion Evidence
+## 10. Completion Evidence
 
 Report:
 
 - test/build commands and results;
 - browser URL;
 - paths to desktop/mobile/signature screenshots;
+- path to project reference memory and source/render comparison captures;
 - main interaction steps exercised;
+- for games, the full maturity slice plus failure/recovery and second-run result;
 - WebGL pixel/console result;
 - renderer telemetry and practical frame-time sample when available;
 - residual visual or device risk.

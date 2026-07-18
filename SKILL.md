@@ -1,6 +1,6 @@
 ---
 name: eazo-threejs-director
-description: Direct and build polished realtime 3D Eazo web experiences from short prompts. Use for websites, games, product viewers, spatial heroes, simulations, or interactive scenes involving Three.js, React Three Fiber (R3F), WebGL, shaders, particles, GLB assets, camera choreography, generated image or 3D assets, and physics; also use when deciding whether an idea is better built procedurally, with generated models, or as a hybrid. Produces art direction, asset routing, implementation, and visual browser QA in one autonomous run.
+description: Use when building or directing a realtime 3D website, game, product viewer, spatial interface, simulation, or interactive scene with Three.js, R3F, or WebGL, especially when the request names an existing visual world, game, brand, character, product, or other IP whose appearance or play must be faithfully reproduced.
 ---
 
 # Eazo Three.js Director
@@ -23,10 +23,49 @@ Deliver one working experience that:
 - works on desktop and mobile, including safe areas and touch controls;
 - has been run, viewed, exercised, captured, measured, and repaired in a real
   browser.
+- stores source-backed reference memory inside the project whenever a named
+  world, work, product, character, or IP defines visual truth;
+- proves reference fidelity with comparable captures rather than treating a
+  passing build, WebGL check, or attractive self-authored frame as evidence;
+- for games, delivers a mature playable loop with decisions, escalation,
+  consequences, progression, recovery, and replay—not only movement and a task.
 
 Build the product, not a landing page that describes the product. Do not ask
 about choices that can be inferred from the request, references, genre, or
 existing repository.
+
+## Reference-Locked Requests
+
+When the user names an existing game, visual world, brand, product, character,
+collectible, or other IP, fidelity is mandatory unless the user explicitly asks
+for reinterpretation.
+
+Before art direction or asset generation:
+
+1. research real high-resolution sources on the web, preferring official or
+   first-party pages, product photography, galleries, and gameplay footage;
+2. copy `assets/reference-memory/` into
+   `docs/references/<project-slug>/` and complete the manifest, visual bible,
+   gameplay contract for games, and comparison log;
+3. extract must-match rules for silhouette, anatomy/feature counts, geometry or
+   grid, palette, texture/pixel grammar, materials, lighting, fog, tone mapping,
+   camera, motion, and core gameplay pillars;
+4. use those rules as the brief and QA baseline, not as post-hoc inspiration.
+
+When a specific organic, character, collectible, product, or branded object must
+be 3D and the user has not supplied a faithful model:
+
+1. find real high-resolution identity images;
+2. use Codex Image2 with those images to generate an identity-locked front,
+   side, and back turnaround without changing features;
+3. reject cross-view drift;
+4. generate the GLB with Meshy 6 Multi-Image to 3D;
+5. compare neutral turntable views to the approved sources before integration.
+
+Text-to-3D, primitive anatomy, recolors, and a flattering camera are not
+acceptable substitutes for this route. Reduce the number of variants before
+reducing identity fidelity. Follow `references/reference-fidelity.md` and
+`references/image2-art-pipeline.md`.
 
 ## Runtime Defaults
 
@@ -57,12 +96,18 @@ Read only the references needed for the task, but never skip the required set.
 - `references/anti-ai-slop.md`
 - `references/verification.md`
 
+**Always read when the prompt names an existing visual reference or IP:**
+
+- `references/reference-fidelity.md`
+
 **Read for implementation:**
 
 - `references/r3f-three-patterns.md` for all Eazo/R3F work;
 - `references/camera-language.md` for any spatial experience;
 - `references/lighting-materials.md` for all styled scenes;
 - `references/motion-interaction.md` for games or animated interactions;
+- `references/gameplay-maturity.md` for every game or explicitly playable
+  experience;
 - `references/physics-feedback.md` when collision, gravity, joints, vehicles,
   grabbing, or impact are meaningful;
 - `references/shaders-postfx.md` when using custom shaders or postprocessing;
@@ -85,6 +130,10 @@ assets, current routes, and dirty worktree state. For the official Eazo
 template, run its cleanup command when starting from untouched demo content.
 Preserve existing user work and platform integrations.
 
+If the request is reference-locked, research and persist the reference memory
+now. Do not postpone sources until after blockout, model generation, palette,
+materials, or postprocessing have already been chosen.
+
 ### 2. Resolve the experience
 
 Translate the request into a compact production brief:
@@ -98,6 +147,7 @@ Camera: [relationship, lens family, movement grammar]
 Signature moment: [the one event the user will remember]
 Constraints: [mobile, performance, existing assets, platform]
 Inferences: [art-direction choices not literally requested]
+Reference lock: [named sources, must-match dimensions, permitted adaptations]
 ```
 
 Do not begin detailed geometry before this brief, the Design DNA, and key shots
@@ -127,10 +177,12 @@ face, clothing/fur, accessories, expression states, skeleton, clips, and proxy
 colliders.
 
 Use image generation to establish visual truth before expensive modeling when
-the subject or style is not already specified. Generate a consistent mood
-frame, orthographic turnaround, material sheet, state sheet, and key shots as
-needed. Then provide those references to the 3D generator. Do not mistake a 2D
-image inside the canvas for interactive 3D.
+the subject or style is original. For a named IP, visual truth comes from
+real sourced images: Image2 extends them into a consistent source-backed
+turnaround and Meshy 6 Multi-Image to 3D consumes the approved views. Generate
+the mood frame, material/state sheet, and key shots needed by the asset and
+reference contract. Do not mistake a 2D image inside the canvas for interactive
+3D.
 
 ### 5. Direct shots and interaction
 
@@ -142,6 +194,15 @@ Define the interaction as explicit states and transitions. Every important
 input should produce immediate acknowledgement and a readable consequence.
 Keep camera shake bounded, event-driven, and recoverable. Do not use
 `OrbitControls` as a substitute for authored camera behavior.
+
+For games, complete `references/gameplay-maturity.md` before declaring the loop.
+The playable contract is:
+
+```text
+verb -> challenge -> consequence -> reward -> escalation -> next decision
+```
+
+Exercise a representative three-minute vertical slice without debug shortcuts.
 
 ### 6. Build by visual importance
 
@@ -171,9 +232,12 @@ signature state. Exercise the real interaction path. Check console/page/WebGL
 errors, canvas pixel variation, framing, UI bounds, asset requests, draw calls,
 triangles, textures, and practical frame time.
 
-Compare the result with the brief, Design DNA, and shot contract. Repair the
-highest-impact mismatch and rerun. Continue until no blocker in
-`references/anti-ai-slop.md` remains.
+Compare the result with the brief, Design DNA, shot contract, gameplay contract,
+and source-backed visual bible. For reference-locked work, capture comparable
+reference/render pairs and record mismatches in the project comparison log.
+Repair the highest-impact mismatch and rerun. Continue until no blocker in
+`references/anti-ai-slop.md`, `references/reference-fidelity.md`, or
+`references/gameplay-maturity.md` remains.
 
 Use the bundled scripts from the target app root when Playwright is installed:
 
@@ -197,6 +261,14 @@ Do not claim completion when any of these are true:
 - postprocessing hides weak modeling or destroys readability;
 - generated GLBs have unchecked scale, axis, origin, ground contact, materials,
   clips, or colliders;
+- a named world has generic geometry, palette, texture filtering, material
+  response, lighting, fog, tone mapping, camera, or gameplay grammar;
+- a named character or branded 3D subject was built from memory, text-to-3D, or
+  primitives when source photography and Image2/Meshy 6 were available;
+- project reference memory, identity lock, or comparable reference/render
+  captures are missing;
+- a game offers controls and a linear task but no meaningful decision,
+  escalation, consequence, progression, failure/recovery, or replay;
 - desktop works but mobile framing or controls fail;
 - interaction has no physical/audio/camera consequence;
 - the browser output has not been personally inspected.
@@ -204,6 +276,6 @@ Do not claim completion when any of these are true:
 ## Handoff
 
 Report the playable URL or local file, the visual/interaction decisions made,
-assets generated or reused, verification performed, and any measured residual
+assets generated or reused, project reference-memory path, comparison evidence,
+gameplay slice exercised, verification performed, and any measured residual
 risk. Keep the report concise; the rendered experience is the primary artifact.
-
