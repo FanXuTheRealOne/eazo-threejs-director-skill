@@ -1,0 +1,7 @@
+interface:
+  display_name: "Eazo Three.js Director"
+  short_description: "Direct polished, playable realtime 3D Eazo experiences"
+  default_prompt: "Use $eazo-threejs-director to turn my idea into a polished, playable 3D Eazo experience and verify it in the browser."
+
+policy:
+  allow_implicit_invocation: true

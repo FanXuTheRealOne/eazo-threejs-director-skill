@@ -1,0 +1,17 @@
+{
+  "required": {
+    "three": "^0.185.0",
+    "@react-three/fiber": "^9.6.0",
+    "@react-three/drei": "^10.7.0"
+  },
+  "optionalWhenUsed": {
+    "@react-three/rapier": "^2.2.0",
+    "@react-three/postprocessing": "resolve a version compatible with the installed R3F",
+    "postprocessing": "resolve with @react-three/postprocessing"
+  },
+  "developmentWhenRunningBundledQA": {
+    "@types/three": "match the installed Three.js version",
+    "playwright": "use the repository-compatible current version"
+  },
+  "compatibility": "React 19 requires @react-three/fiber 9; inspect current package versions before merging this manifest."
+}
