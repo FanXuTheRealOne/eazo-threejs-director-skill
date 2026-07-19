@@ -1,7 +1,7 @@
 interface:
   display_name: "Eazo Three.js Director"
-  short_description: "Turn prompts and references into faithful realtime 3D"
-  default_prompt: "Use $eazo-threejs-director to turn my visual prompt into a reference-locked, playable realtime 3D experience and verify the live render."
+  short_description: "Turn one-line ideas into verified realtime 3D"
+  default_prompt: "Use $eazo-threejs-director to expand my idea into one production-grade 3D prompt, build it, and verify the live result."
 
 policy:
   allow_implicit_invocation: true

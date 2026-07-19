@@ -1,225 +1,119 @@
-# Visual and Interaction Verification
+# Browser Verification and Repair
 
-The Agent must view the output. Source review, lint, build, and unit tests cannot
-prove camera framing, material response, WebGL output, interaction timing, or
-mobile composition.
+The rendered browser output is the evidence. Source review, build success, and a
+nonblank canvas cannot prove composition, material response, camera safety,
+interaction, cold reveal, or mobile quality.
 
-## Contents
+## Start and Instrument
 
-- [Server and capture matrix](#1-start-cleanly)
-- [WebGL and telemetry](#3-webgl-verification)
-- [Interaction and screenshot review](#5-interaction-assertions)
-- [Reference comparison, repair, static scan, and evidence](#7-reference-comparison-gate)
+Run the repository's lint/type/test/build commands, start the final route on a
+free port, and inspect it in a real browser. Collect:
 
-## 1. Start Cleanly
+- page/console errors and warnings;
+- failed requests and asset MIME/CORS issues;
+- shader compile/link errors and WebGL context loss;
+- canvas size and pixel variation;
+- camera/phase/quality telemetry;
+- draw calls, triangles, geometries, textures, DPR, and sustained frame-time.
 
-From the target app:
-
-1. install dependencies with the repository package manager;
-2. run lint/typecheck/build as available;
-3. start the dev server on a free port and keep the session alive;
-4. wait for the route to return successfully;
-5. note any pre-existing server rather than killing it without reason.
-
-## 2. Capture Matrix
-
-Capture at minimum:
-
-| State | Desktop | Mobile |
-| --- | --- | --- |
-| loading/fallback | when visible | when visible |
-| ready/default | required | required |
-| primary action | required | required |
-| signature moment | required | required |
-| success/failure/result | required | required |
-| error fallback | exercise when practical | exercise when practical |
-
-Recommended viewports:
-
-- desktop: 1440 x 900 or the product's primary target;
-- mobile portrait: 390 x 844;
-- add landscape for games intended to use it.
-
-Use the bundled capture script:
-
-```bash
-node /path/to/skill/scripts/capture-viewports.mjs \
-  --url http://127.0.0.1:3000 \
-  --out artifacts/visual-qa
-```
-
-For non-default states, use `--steps path/to/steps.json`. The JSON contains a
-list of named captures with Playwright actions:
-
-```json
-[
-  {
-    "name": "signature",
-    "actions": [
-      { "type": "click", "selector": "[data-testid='start']" },
-      { "type": "wait", "ms": 800 },
-      { "type": "click", "selector": "[data-testid='action']" },
-      { "type": "wait", "ms": 1200 }
-    ]
-  }
-]
-```
-
-Supported actions are documented by `--help` in the script.
-
-## 3. WebGL Verification
-
-Run:
-
-```bash
-node /path/to/skill/scripts/verify-webgl.mjs \
-  --url http://127.0.0.1:3000 \
-  --out artifacts/visual-qa
-```
-
-Require:
-
-- at least one visible canvas;
-- a WebGL context;
-- nonzero canvas dimensions;
-- pixel luminance/color variance above the blank-frame threshold;
-- no uncaught page errors;
-- no severe console errors, shader compile/link errors, or context loss;
-- successful critical model/texture requests;
-- stable layout after loading.
-
-Treat pixel analysis as a blank-frame detector, not an aesthetic score.
-
-## 4. Scene Telemetry
-
-Prefer exposing development-only data:
-
-```ts
-window.__EAZO_3D_DEBUG__ = {
-  phase,
-  camera: { position, target, fov },
-  qualityTier,
-  renderer: {
-    calls: gl.info.render.calls,
-    triangles: gl.info.render.triangles,
-    geometries: gl.info.memory.geometries,
-    textures: gl.info.memory.textures,
-  },
-};
-```
-
-The verification script will collect this object when present. Do not expose
-private user data.
-
-## 5. Interaction Assertions
-
-Use Playwright to verify the actual loop:
-
-- controls are visible, stable, and clickable/touchable;
-- first input changes visual or state telemetry quickly;
-- phase transitions occur in the intended order;
-- physics/result events occur once rather than every contact frame;
-- camera remains finite and inside expected bounds;
-- signature state returns or ends intentionally;
-- reset restores a playable state;
-- pointer lock can be released;
-- touch input does not scroll the page unintentionally.
-
-## 6. Screenshot Review Rubric
-
-Inspect every capture at full size and thumbnail size:
-
-- focal subject and silhouette;
-- hero screen occupancy;
-- foreground/midground/background separation;
-- material differentiation;
-- motivated lighting and readable shadows;
-- atmosphere without hidden gameplay;
-- camera horizon, perspective, and target;
-- HUD contrast, overlap, safe areas, and text fit;
-- state-specific motion/effect readability;
-- unintended blank regions, clipping, z-fighting, or floating assets.
-
-Use browser screenshots rather than relying on a generated mood frame.
-
-## 7. Reference-Comparison Gate
-
-For every prompt-locked styled experience, screenshot review must include a
-`reference-comparison` set covering each approved reference role. For any named
-world, game, product, character, or IP, the set must additionally use
-authoritative source-aligned states. A polished render judged in isolation is
-not fidelity evidence.
-
-1. Select the role reference recorded in the manifest; for named references,
-   select the official/source target.
-2. Reproduce its state, camera height, FOV, horizon, subject occupancy, time of
-   day, and viewport as closely as the interactive product permits.
-3. Place the source and browser render side-by-side. Add an overlay, silhouette
-   mask, landmark plot, palette sample, or pixel difference where it clarifies a
-   mismatch.
-4. Review geometry/grid and proportions first; then identity features, palette,
-   texture filtering and texel scale, material response, light/shadow, fog,
-   tone mapping/global grade, camera, and motion/state readability.
-5. Record reference role, expected reference, observed render, cause, repair,
-   and recapture path in the project comparison log.
-
-For original prompts, compare role-equivalent evidence rather than demanding a
-global pixel match to unrelated geometry. Require traceability: the final
-palette/value balance, material response, lighting, shader behavior, tone
-mapping, fog, and filter intensity must point to the render translation ledger.
-
-For a generated IP model, capture neutral front/right/back/left turntable views
-before styled scene lighting. Feature-count, face, silhouette, pattern, garment,
-or accessory drift is a blocker even if an aggregate image metric looks good.
-
-For a named game's rendering grammar, inspect close crops as well as full frames.
-Linear filtering, smooth gradients, arbitrary PBR shine, bevels, or a global
-pastel/toon/cinematic filter can invalidate a voxel or pixel reference even when
-large-scale composition is similar.
-
-Metrics such as silhouette IoU, landmark offsets, dominant-color distance,
-pixel-diff, or perceptual distance may support comparison. Derive thresholds
-from the reference pack and shot contract; do not invent universal numbers or
-copy proprietary source textures to make a metric pass.
-
-## 8. Repair Loop
-
-For each mismatch write:
-
-```text
-Evidence:
-Expected contract:
-Observed problem:
-Likely cause:
-Smallest high-impact repair:
-Reverification state/viewports:
-```
-
-Repair camera/scale/light/material hierarchy before secondary props and effects.
-Rerun affected interactions and both responsive viewports.
-
-## 9. Static Smell Scan
-
-Run:
+Use the bundled scripts when compatible:
 
 ```bash
 node /path/to/skill/scripts/inspect-scene.mjs --root .
+node /path/to/skill/scripts/capture-viewports.mjs --url http://127.0.0.1:3000 --out artifacts/visual-qa
+node /path/to/skill/scripts/verify-webgl.mjs --url http://127.0.0.1:3000 --out artifacts/visual-qa
 ```
 
-Review warnings for unsupported material parameters, per-frame state updates,
-unbounded controls, extreme renderer settings, and missing responsive/full-height
-contracts. Warnings require judgment; they are not substitutes for screenshots.
+## Capture Matrix
 
-## 10. Completion Evidence
+Capture at minimum:
 
-Report:
+| State/view | Desktop | Mobile |
+| --- | --- | --- |
+| intentional loading | required | required |
+| first revealed frame | required | required |
+| authored default | required | required |
+| primary interaction | required | required |
+| signature moment | required | required |
+| result/error/recovery | required when applicable | required when applicable |
+| inspection extremes | required | required |
 
-- test/build commands and results;
-- browser URL;
-- paths to desktop/mobile/signature screenshots;
-- path to project reference memory and source/render comparison captures;
-- main interaction steps exercised;
-- for games, the full maturity slice plus failure/recovery and second-run result;
-- WebGL pixel/console result;
-- renderer telemetry and practical frame-time sample when available;
-- residual visual or device risk.
+For free cameras, sample multiple azimuths, elevations, distances, pans, and zoom
+limits. Inspect back/sides/undersides, room shells, cutaway edges, occluder
+behavior, ground contact, shadows, transparency order, near/far clipping,
+backfaces, and control recovery. For authored cameras, capture every state path
+plus interruption and return.
+
+## Visual Review
+
+Inspect full-size and thumbnail captures for:
+
+- intentional focal hierarchy and hero occupancy;
+- foreground/midground/background depth;
+- readable silhouette and construction detail;
+- distinct material families;
+- motivated light, contact shadow, emissive spill, fog/background agreement;
+- palette/value/temperature balance;
+- shader/postprocessing purpose and restraint;
+- stable HUD, text, safe areas, and mobile crop;
+- clipping, z-fighting, floating props, blank planes, accidental occlusion.
+
+When references were used, place role-matched source and render frames
+side-by-side. Compare only what each reference proves: composition, silhouette,
+palette, material, lighting, texture/render grammar, tone mapping, fog, camera,
+or identity. When no images were needed, compare the render against the resolved
+design spec and shot/state contract.
+
+## Interaction Review
+
+Exercise the real controls rather than debug shortcuts:
+
+- first input acknowledgment and state transition;
+- pointer, keyboard, touch, pan/zoom/orbit/look bounds;
+- collision/selection/physics events occurring once;
+- signature state entry, interruption, completion, and recovery;
+- success, failure, reset, and second run for games;
+- resize, orientation, blur/visibility, reduced motion, loading and error paths;
+- no unintended page scroll, zoom, stuck pointer lock, or duplicated audio.
+
+## Cold-Reload Reveal
+
+Perform a cold reload with cache disabled when practical. Capture approximately
+0.3 s, 1 s, and 3 s, the final loading frame, and the first three revealed
+frames.
+
+Before readiness, a designed opaque loading surface is valid. After reveal,
+inspect explicitly for:
+
+- solid black rectangles, bands, blocks, letterbox bars, or transparent gaps;
+- leftover loading veils or one-frame overlay flashes;
+- placeholder/safety planes and unfinished room shells;
+- pure-black or missing textures/materials;
+- half-compiled shaders, post passes, particles, reflections, or GLB variants;
+- layout shifts, camera jumps, invalid exposure, or stale fallback UI.
+
+Any artifact requires repair and another cold-reload capture. A fixed timer is
+not evidence of readiness.
+
+## Performance Review
+
+Check sustained rather than single-frame performance at default, densest,
+signature, and camera-extreme states. Verify approximately 60 fps/16.7 ms on the
+desktop target and the declared mobile tier. Record renderer counts and identify
+spikes from compilation, asset upload, physics, reflection, transparency,
+particles, or React/UI updates.
+
+Reduce secondary shadows, reflections, particles, distant density, DPR, and post
+quality before reducing hero quality or core feedback.
+
+## Repair Order
+
+1. blank, broken, black/reveal, asset, or blocked-interaction failures;
+2. camera, hero scale, composition, clipping, unfinished angles;
+3. material/light/palette/reference or design-spec mismatch;
+4. interaction feedback, motion weight, game recovery, mobile controls;
+5. sustained performance and memory instability;
+6. secondary detail.
+
+Repeat affected captures and interactions after every repair. Completion
+requires current evidence, not screenshots from before the fix.

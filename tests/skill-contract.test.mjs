@@ -1,109 +1,127 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import test from 'node:test';
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), 'utf8');
 
-test('named reference worlds and IP assets are locked to sourced visual truth', async () => {
-  const [skill, workflow, fidelity, image2, manifest, visualBible] = await Promise.all([
+test('one-line requests compile through one central design spec and production prompt', async () => {
+  const [skill, compiler, spec, prompt] = await Promise.all([
     read('SKILL.md'),
-    read('references/director-workflow.md'),
-    read('references/reference-fidelity.md'),
-    read('references/image2-art-pipeline.md'),
-    read('assets/reference-memory/reference-manifest.md'),
-    read('assets/reference-memory/visual-bible.md'),
+    read('references/prompt-compiler.md'),
+    read('assets/design-spec-template.md'),
+    read('assets/realtime-3d-production-prompt.md'),
   ]);
 
-  assert.match(skill, /Reference-Locked Requests/);
-  assert.match(skill, /references\/reference-fidelity\.md/);
-  assert.match(workflow, /docs\/references\/<project-slug>\/reference-manifest\.md/);
-  assert.match(fidelity, /official or first-party/i);
-  assert.match(fidelity, /high-resolution/i);
-  assert.match(fidelity, /must-match/i);
-  assert.match(fidelity, /side-by-side/i);
-  assert.match(image2, /source-backed turnaround/i);
-  assert.match(image2, /do not redesign/i);
-  assert.match(manifest, /Source URL/);
-  assert.match(manifest, /Rights or usage note/);
-  assert.match(visualBible, /Forbidden drift/);
-  assert.match(visualBible, /Texture and pixel grammar/i);
+  assert.match(skill, /single production prompt/i);
+  assert.match(skill, /assets\/realtime-3d-production-prompt\.md/);
+  assert.match(skill, /assets\/design-spec-template\.md/);
+  assert.match(compiler, /one-line request/i);
+  assert.match(compiler, /fill every required field/i);
+  assert.match(compiler, /remove unused/i);
+  assert.match(compiler, /后室/);
+  assert.match(compiler, /Labubu/i);
+  assert.match(spec, /Literal user request/i);
+  assert.match(spec, /Resolved design spec/i);
+  assert.match(prompt, /Literal user request/i);
+  assert.match(prompt, /Resolved design spec/i);
 });
 
-test('specific organic or branded 3D assets require Image2 views and Meshy 6 multi-image generation', async () => {
-  const [skill, fidelity, image2] = await Promise.all([
+test('the production prompt closes visual, camera, performance, reveal, mobile, and QA gaps', async () => {
+  const prompt = await read('assets/realtime-3d-production-prompt.md');
+
+  assert.match(prompt, /CURRENT working directory/);
+  assert.match(prompt, /index\.html/);
+  assert.match(prompt, /hero composition/i);
+  assert.match(prompt, /foreground.*midground.*background/is);
+  assert.match(prompt, /inspection envelope/i);
+  assert.match(prompt, /all.*angles/is);
+  assert.match(prompt, /secondary motion/i);
+  assert.match(prompt, /desktop.*mobile/is);
+  assert.match(prompt, /touch/i);
+  assert.match(prompt, /safe area/i);
+  assert.match(prompt, /prefers-reduced-motion/i);
+
+  assert.match(prompt, /60\s*fps/i);
+  assert.match(prompt, /DPR|devicePixelRatio/i);
+  assert.match(prompt, /instanc/i);
+  assert.match(prompt, /frame[- ]time/i);
+  assert.match(prompt, /compileAsync|renderer\.compile/);
+  assert.match(prompt, /initTexture/);
+  assert.match(prompt, /prewarm.*postprocessing/is);
+  assert.match(prompt, /actual rendered frames/i);
+  assert.match(prompt, /fixed timer/i);
+  assert.match(prompt, /plausible base color/i);
+
+  assert.match(prompt, /cold reload/i);
+  assert.match(prompt, /0\.3.*1.*3/is);
+  assert.match(prompt, /black rectangles/i);
+  assert.match(prompt, /multiple azimuths/i);
+  assert.match(prompt, /README\.md/);
+});
+
+test('Image2, multi-view generation, and Meshy are independent conditional decisions', async () => {
+  const [skill, routing] = await Promise.all([
     read('SKILL.md'),
-    read('references/reference-fidelity.md'),
-    read('references/image2-art-pipeline.md'),
+    read('references/asset-routing.md'),
   ]);
 
-  for (const document of [skill, fidelity, image2]) {
-    assert.match(document, /Image2/);
-    assert.match(document, /Meshy 6/);
-  }
-
-  assert.match(image2, /front, (?:left|right) side, and back/i);
-  assert.match(image2, /multi-image-to-3d/);
-  assert.match(image2, /image_enhancement.*false/s);
-  assert.match(image2, /1 to 4 images/i);
+  assert.match(skill, /conditional/i);
+  assert.match(skill, /Skip Image2/i);
+  assert.match(skill, /Skip Meshy/i);
+  assert.match(routing, /art direction only/i);
+  assert.match(routing, /Skip Image2/i);
+  assert.match(routing, /Skip Meshy/i);
+  assert.match(routing, /multi-view.*only when/is);
+  assert.match(routing, /Meshy 6.*only when/is);
+  assert.match(routing, /上海/);
+  assert.match(routing, /Labubu/i);
+  assert.match(routing, /procedural/i);
 });
 
-test('game requests cannot complete without a mature playable loop and reference comparison evidence', async () => {
-  const [skill, gameplay, verification, gameplayContract, comparisonLog] = await Promise.all([
-    read('SKILL.md'),
-    read('references/gameplay-maturity.md'),
+test('the unified template preserves mature interaction and reference-derived rendering when applicable', async () => {
+  const [prompt, spec, routing, verification] = await Promise.all([
+    read('assets/realtime-3d-production-prompt.md'),
+    read('assets/design-spec-template.md'),
+    read('references/asset-routing.md'),
     read('references/verification.md'),
-    read('assets/reference-memory/gameplay-contract.md'),
-    read('assets/reference-memory/comparison-log.md'),
   ]);
 
-  assert.match(skill, /references\/gameplay-maturity\.md/);
-  assert.match(gameplay, /verb -> challenge -> consequence -> reward -> escalation/i);
-  assert.match(gameplay, /onboarding/i);
-  assert.match(gameplay, /meaningful decision/i);
-  assert.match(gameplay, /failure.*recovery/s);
-  assert.match(gameplay, /three-minute/i);
-  assert.match(verification, /reference-comparison/i);
+  assert.match(spec, /camera/i);
+  assert.match(spec, /prompt fingerprint/i);
+  assert.match(spec, /reference scorecard/i);
+  assert.match(spec, /render translation ledger/i);
+  assert.match(spec, /palette/i);
+  assert.match(spec, /material/i);
+  assert.match(spec, /shader/i);
+  assert.match(spec, /postprocessing/i);
+  assert.match(spec, /asset route/i);
+  assert.match(prompt, /decision.*consequence.*reward.*escalation/is);
+  assert.match(prompt, /failure.*recovery.*replay/is);
+  assert.match(prompt, /prompt fingerprint/i);
+  assert.match(prompt, /score.*semantic.*form.*material.*light.*camera.*render/is);
+  assert.match(prompt, /render translation ledger/i);
+  assert.match(prompt, /neutral.*render.*calibrat/is);
+  assert.match(routing, /official|first-party/i);
+  assert.match(routing, /no Image2.*does not mean no reference/is);
+  assert.match(routing, /do not average incompatible references/i);
+  assert.match(verification, /side-by-side/i);
   assert.match(verification, /palette/i);
-  assert.match(verification, /texture filtering/i);
+  assert.match(verification, /material/i);
   assert.match(verification, /tone mapping/i);
-  assert.match(gameplayContract, /Escalation/);
-  assert.match(gameplayContract, /Recovery and replay/);
-  assert.match(comparisonLog, /Expected reference/);
-  assert.match(comparisonLog, /Observed render/);
 });
 
-test('every visual prompt drives reference search and a reference-derived render recipe', async () => {
-  const [skill, workflow, lookdev, antiSlop, manifest, visualBible, comparisonLog] = await Promise.all([
-    read('SKILL.md'),
-    read('references/director-workflow.md'),
-    read('references/prompt-reference-lookdev.md'),
-    read('references/anti-ai-slop.md'),
-    read('assets/reference-memory/reference-manifest.md'),
-    read('assets/reference-memory/visual-bible.md'),
-    read('assets/reference-memory/comparison-log.md'),
+test('the main skill and reference surface stay deliberately small', async () => {
+  const skill = await read('SKILL.md');
+  const references = (await readdir(new URL('../references/', import.meta.url)))
+    .filter((name) => name.endsWith('.md'))
+    .sort();
+
+  assert.ok(skill.split('\n').length <= 200, `SKILL.md has ${skill.split('\n').length} lines`);
+  assert.deepEqual(references, [
+    'asset-routing.md',
+    'prompt-compiler.md',
+    'runtime-patterns.md',
+    'verification.md',
   ]);
-
-  assert.match(skill, /prompt-reference-lookdev\.md/);
-  assert.match(skill, /prompt-locked/i);
-  assert.match(workflow, /verbatim prompt/i);
-  assert.match(workflow, /reference search/i);
-
-  assert.match(lookdev, /prompt fingerprint/i);
-  assert.match(lookdev, /search queries/i);
-  assert.match(lookdev, /candidate scorecard/i);
-  assert.match(lookdev, /reference role/i);
-  assert.match(lookdev, /palette/i);
-  assert.match(lookdev, /shader/i);
-  assert.match(lookdev, /postprocessing/i);
-  assert.match(lookdev, /render translation ledger/i);
-  assert.match(lookdev, /side-by-side/i);
-  assert.match(antiSlop, /verbatim prompt/i);
-  assert.match(antiSlop, /render translation ledger/i);
-
-  assert.match(manifest, /Search query/);
-  assert.match(manifest, /Reference role/);
-  assert.match(visualBible, /Prompt Fingerprint/);
-  assert.match(visualBible, /Palette Measurements/);
-  assert.match(visualBible, /Render Translation Ledger/);
-  assert.match(comparisonLog, /Reference role/);
+  assert.doesNotMatch(skill, /director-workflow|prompt-reference-lookdev|design-dna-3d/);
 });
