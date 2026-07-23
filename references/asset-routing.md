@@ -9,7 +9,7 @@ images, and Meshy. Availability is not justification.
 | --- | --- | --- | --- |
 | searched references | named place/world/IP or unresolved visual grammar affects fidelity | the user's supplied evidence and spec already resolve the look | source URLs + observations |
 | Image2 key art | one coherent target frame would resolve composition/light/material ambiguity | the design spec and real references already provide a sufficient target | inspected mood/key shot |
-| Image2 multi-view | a specific asset needs true 3D inspection and missing views block its construction | the asset is procedural, distant, abstract, already modeled, or not inspected from multiple sides | consistent approved views |
+| Image2 multi-view | a specific asset needs true 3D inspection and missing views block its construction; high-occupancy heroes have unclear side/back/detail proportions | the asset is distant/background, abstract, already modeled, or official/source views already cover every inspected side | consistent approved views + part breakdown |
 | Meshy 6 | a generated 3D asset is required and multi-view evidence is consistent | procedural/custom geometry or an existing/sourced model is more controllable or faithful | validated GLB |
 
 Reference search and image generation are not the same decision. A source image
@@ -27,6 +27,9 @@ Role and maximum screen occupancy:
 Required views and states:
 Identity/silhouette/surface risk:
 Gameplay-controlled parts:
+Part decomposition ledger: primary masses; structural members; joints/fasteners;
+trim; glass/openings; lights/decals/signage; moving parts; underside/backside;
+scale cues; named omissions.
 Candidate route: procedural | sourced | Image2 | Meshy | hybrid
 Why this route improves the browser result:
 Fallback:
@@ -38,6 +41,15 @@ tracks, rails, claws, lights, shelves, repeated props, particles, abstract
 effects, changing dimensions, and collision proxies. Procedural does not mean
 unbeveled boxes: refine profiles, thickness, joints, trim, cut lines, decals,
 material zones, and contact detail at the intended camera distance.
+
+For high-occupancy named architecture, landmarks, towers, vehicles, machines,
+or product hardware, procedural/custom geometry is acceptable only after a
+reference-backed part decomposition exists. Build it as many named Three.js
+components, not one approximate mesh: base/foundation, legs, rings, braces,
+decks/cabins, rails, cables, windows, lights, decals, panels, fasteners,
+underside and rear-facing detail. Validate front/side/back/top or equivalent
+orbit views. If references do not reveal enough sides or construction detail,
+generate Image2 multi-view evidence before modeling.
 
 Prefer an existing or generated model for close organic characters, faces,
 hands, clothing/fur, complex curved products, identifiable vehicles, landmark
@@ -71,8 +83,8 @@ validation crop in the design spec's render translation ledger.
 
 Skip Image2 when any of these is true:
 
-- the subject is architectural, mechanical, abstract, or modular and procedural
-  construction can satisfy every required view;
+- the subject is low-occupancy/background architectural, mechanical, abstract,
+  or modular and procedural construction can satisfy every required view;
 - the asset is small/distant enough that a generated image would not improve its
   readable silhouette or material response;
 - the user supplied sufficient visual evidence;
@@ -91,6 +103,12 @@ Generate multi-view images only when all are true:
 3. available source views are incomplete;
 4. procedural construction or an existing model cannot meet the target;
 5. consistent additional views will directly improve modeling.
+
+For high-occupancy landmark/mechanical heroes, interpret "cannot meet the
+target" strictly: if the current build would reduce the hero to a few blocks,
+cylinders, or vague lattice lines, multi-view evidence is required unless
+official/source views already cover the inspected angles. Image2 can be used as
+a modeling brief even when the final asset remains procedural Three.js.
 
 Reject cross-view changes in feature count, face, silhouette, pattern, material
 zones, accessories, dimensions, or ground line.
@@ -136,6 +154,18 @@ turntable views to the approved evidence when identity matters.
   landmark or composition; not mandatory for a procedural skyline.
 - Meshy: use Meshy 6 only when a high-occupancy landmark/prop needs a standalone
   model and procedural/sourced geometry cannot satisfy it.
+
+### 东京铁塔 / landmark simulator
+
+- Evidence: official/site reference for facts plus front/side/detail visual
+  references for lattice, decks, base, antenna, paint bands and lighting.
+- Image2: generate multi-view evidence when official/reference views do not
+  cover the sides/back/deck/base construction needed by the camera bible.
+- Geometry: split into named Three.js parts: FootTown/base, four tapered legs,
+  ring levels, primary/secondary cross braces, Main Deck, Top Deck, antenna,
+  paint bands, LED nodes, rail/cable/detail layers and underside/back detail.
+- Meshy: only if a validated generated GLB improves close inspection more than
+  procedural part assembly.
 
 ## Red Flags
 

@@ -41,7 +41,8 @@ ones:
    purpose, decoration budget.
 9. **Evidence translation:** prompt fingerprint, reference roles, candidate
    compatibility, and observation-to-runtime render ledger when evidence helps.
-10. **Asset route:** procedural, sourced, generated image, generated 3D, hybrid.
+10. **Asset route:** procedural, sourced, generated image, generated 3D, hybrid,
+    with high-occupancy heroes decomposed into named parts before modeling.
 11. **Runtime finish:** performance tier, reveal, responsive/accessibility.
 12. **Acceptance evidence:** solver/static proof, browser auto-play,
     screenshots, state captures, performance and cold-load checks.
@@ -86,6 +87,10 @@ user is brief:
 - **Visual finish:** palette per scene/state, face/material separation, light
   sources, tone mapping, fog/sky integration, water/particles/effects, UI style,
   and decoration roles.
+- **Hero construction:** if a named landmark, tower, machine, vehicle, product,
+  or complex prop dominates the frame, require multi-view evidence or explicit
+  source coverage, then specify a part-by-part Three.js assembly. Do not allow
+  the hero to collapse into a few generic blocks/cylinders/lines.
 - **Verification:** include algorithmic proof for puzzles/games when feasible,
   browser auto-play/debug hooks, screenshot matrix, visibility and obstruction
   checks, and negative proof that the core mechanism is actually required.

@@ -115,6 +115,15 @@ key art is not the live scene. If no image evidence is required, build directly
 from this resolved spec. Do not generate Image2 views or a Meshy model unless the
 asset decision explicitly requires them.
 
+For any high-occupancy named landmark, tower, machine, vehicle, product, or
+complex hero prop, do not proceed from a vague silhouette. Use official/source
+front/side/back/top/detail references or generate Image2 multi-view evidence
+when those views are missing. Then build a named component assembly in Three.js:
+primary masses, structural members, cross-bracing, joints, trim, glass/openings,
+lights/decals/signage, moving parts, underside and rear-facing details, and
+scale cues. A procedural route still requires this part ledger; "procedural"
+does not mean coarse.
+
 When references are required, search by separate roles rather than accepting the
 first attractive image. Score candidates for semantic intent, form, palette,
 material, light, camera, and render grammar; reject contradictions and do not
@@ -148,6 +157,10 @@ authored first frame and hero composition before secondary detail.
 - Build the back, sides, undersides, room shell, and occluded areas throughout
   the declared inspection envelope. No one-sided stage set, head-on billboard,
   missing backfaces, floating object, arbitrary safety floor, or black placeholder.
+- For high-occupancy heroes, create separate component files or clearly named
+  builders for each part family. Validate close/detail and orbit screenshots
+  against the part ledger. If the screenshot reads as a simple proxy instead of
+  the named subject, return to evidence and decomposition before polishing.
 - Keep background and decoration disciplined. Every decorative object must have
   a name, a visual role, a scale, and a validation view. Do not scatter random
   abstract geometry, unreadable towers, floating strips, unrelated props, or

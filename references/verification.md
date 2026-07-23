@@ -61,6 +61,9 @@ Inspect full-size and thumbnail captures for:
 - intentional focal hierarchy and hero occupancy;
 - foreground/midground/background depth;
 - readable silhouette and construction detail;
+- high-occupancy hero part ledger satisfied: primary masses, structural members,
+  joints, trims, lights/decals, underside/back detail and scale cues are visible
+  in the required views;
 - distinct material families;
 - motivated light, contact shadow, emissive spill, fog/background agreement;
 - palette/value/temperature balance;
@@ -77,6 +80,10 @@ side-by-side. Compare only what each reference proves: composition, silhouette,
 palette, material, lighting, texture/render grammar, tone mapping, fog, camera,
 or identity. When no images were needed, compare the render against the resolved
 design spec and shot/state contract.
+
+For high-occupancy heroes, include at least one close/detail capture and one
+opposite-side or orbit capture. If the hero still reads as a coarse proxy at the
+intended camera distance, the failure is modeling/evidence, not polish.
 
 ## Interaction Review
 

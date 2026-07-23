@@ -51,13 +51,19 @@ generation, and Meshy are separate decisions:
 
 - A reference image may guide composition, palette, material, light, or render
   grammar without becoming a texture or model.
+- High-occupancy named architecture, landmarks, vehicles, machines, towers,
+  product hardware, or complex hero props must not be built as one coarse
+  procedural silhouette. First gather official/reference views or generate
+  Image2 multi-view evidence when views are missing, then write a part
+  decomposition ledger and build the hero as named Three.js components.
 - Skip Image2 when the request is visually clear, procedural construction can
-  satisfy the required views, or a generated image would not reduce material
-  uncertainty.
+  satisfy the required views at the intended screen size, or a generated image
+  would not reduce form/material uncertainty.
 - Skip Meshy when primitives/custom geometry, existing assets, or a sourced
   model meet the intended camera distance and identity requirement.
 - Generate multi-view images only when a specific asset must be inspected in 3D
-  and missing views block faithful modeling.
+  and missing views block faithful modeling; for a high-occupancy hero, treat
+  unclear sides/back/detail proportions as blocking.
 - Use Meshy 6 only after deciding that the generated 3D asset will improve the
   final browser experience more than procedural or existing geometry.
 
@@ -81,14 +87,16 @@ Implement in this order:
 
 1. app shell, authored first camera, controls, loading/reveal path;
 2. hero silhouette and purposeful foreground/midground/background composition;
-3. complete interaction state, puzzle model, simulation, or mature game loop;
-4. camera choreography as a director: establishing shot, tracking, reveal,
+3. high-occupancy hero part breakdown: primary masses, structural members,
+   joints, trims, surface zones, lights/decals, back/underside and scale cues;
+4. complete interaction state, puzzle model, simulation, or mature game loop;
+5. camera choreography as a director: establishing shot, tracking, reveal,
    orbit/inspection, cutaway/drone/crane moves, recovery, and mobile crop;
-5. refined palette, material separation, motivated lighting, atmosphere, and
+6. refined palette, material separation, motivated lighting, atmosphere, and
    restrained decoration that identifies itself and serves the scene;
-6. secondary motion, signature moment, sound, shader/postprocessing;
-7. all-angle completion, mobile controls, reduced motion, quality tiers;
-8. cold-start, browser, performance, and visual repair loop.
+7. secondary motion, signature moment, sound, shader/postprocessing;
+8. all-angle completion, mobile controls, reduced motion, quality tiers;
+9. cold-start, browser, performance, and visual repair loop.
 
 Run and inspect the scene after every major pass. Code volume, a successful
 build, or a visible canvas is not visual evidence.
@@ -116,6 +124,12 @@ Do not finish when any of these is true:
   unfinished back/side inside its inspection envelope;
 - visually important objects remain generic primitives where silhouette or
   surface identity matters;
+- a high-occupancy named hero is implemented as a coarse monolith instead of a
+  decomposed assembly with evidence-backed proportions, parts, joints, material
+  zones, and side/back detail;
+- missing front/side/back/top reference views were not resolved through official
+  evidence, Image2 multi-view generation, sourced models, or a clearly justified
+  procedural part ledger;
 - the background contains random filler geometry, abstract clutter, or shapes
   that do not read as an intended prop, architecture, landscape, UI, or effect;
 - materials, lights, shaders, or post effects are indistinguishable, arbitrary,

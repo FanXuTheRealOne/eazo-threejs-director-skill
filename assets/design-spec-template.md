@@ -37,6 +37,8 @@ Resolved design spec:
 - Midground role:
 - Background role:
 - Background whitelist, maximum three visual families:
+- Hero part decomposition ledger:
+- Required hero views/evidence (front/side/back/top/detail or justified subset):
 - Shape and edge language:
 - Density and negative-space rule:
 - Inspection envelope and all-angle completion rule:
@@ -88,6 +90,7 @@ Resolved design spec:
 - Must-match observations:
 - Permitted adaptations:
 - Comparison views/crops:
+- Multi-view requirement decision:
 
 ### Render Translation Ledger
 
@@ -99,9 +102,9 @@ Remove this table when the evidence route is `none`.
 
 ## Asset Route
 
-| Asset/system | Screen importance | Required views/states | Route | Image2? | Multi-view? | Meshy 6? | Materials/motion | Fallback | Validation |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Hero |  |  | procedural/sourced/generated/hybrid | no/yes + reason | no/yes + reason | no/yes + reason |  |  |  |
+| Asset/system | Screen importance | Required views/states | Part decomposition | Route | Image2? | Multi-view? | Meshy 6? | Materials/motion | Fallback | Validation |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Hero |  |  | primary masses / structure / joints / trim / lights / underside-back | procedural/sourced/generated/hybrid | no/yes + reason | no/yes + reason | no/yes + reason |  |  |  |
 
 ## Camera and Interaction
 

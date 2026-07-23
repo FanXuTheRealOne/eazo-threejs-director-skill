@@ -19,6 +19,12 @@ camera rig, interaction state, asset adapters, effects/audio, HUD, and
 development telemetry. Keep hot per-frame state in refs, mixers, physics bodies,
 or renderer uniforms; keep React state for coarse phases and UI.
 
+For a high-occupancy hero, split the hero further by construction families
+instead of one monolithic component: base/foundation, primary structure,
+secondary braces, decks/cabins/shells, trim/rails/cables, glass/openings,
+lights/decals, moving mechanisms, underside/back detail, and scale props. Each
+family should own its geometry density, materials, and validation views.
+
 Normalize every imported model once:
 
 - units, bounding box, origin, ground contact, forward/up axes;

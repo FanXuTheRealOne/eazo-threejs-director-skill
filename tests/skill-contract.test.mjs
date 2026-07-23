@@ -94,6 +94,25 @@ test('Image2, multi-view generation, and Meshy are independent conditional decis
   assert.match(routing, /procedural/i);
 });
 
+test('high-occupancy heroes require evidence-backed part decomposition', async () => {
+  const [skill, routing, compiler, prompt, spec, verification] = await Promise.all([
+    read('SKILL.md'),
+    read('references/asset-routing.md'),
+    read('references/prompt-compiler.md'),
+    read('assets/realtime-3d-production-prompt.md'),
+    read('assets/design-spec-template.md'),
+    read('references/verification.md'),
+  ]);
+
+  assert.match(skill, /High-occupancy named architecture.*part\s+decomposition ledger/is);
+  assert.match(routing, /high-occupancy named architecture.*reference-backed part decomposition/is);
+  assert.match(routing, /东京铁塔.*FootTown\/base.*four tapered legs.*Main Deck.*Top Deck/is);
+  assert.match(compiler, /Hero construction.*named landmark.*multi-view evidence/is);
+  assert.match(prompt, /high-occupancy named landmark.*Image2 multi-view evidence/is);
+  assert.match(spec, /Hero part decomposition ledger/i);
+  assert.match(verification, /high-occupancy hero part ledger satisfied/i);
+});
+
 test('the unified template preserves mature interaction and reference-derived rendering when applicable', async () => {
   const [prompt, spec, routing, verification] = await Promise.all([
     read('assets/realtime-3d-production-prompt.md'),

@@ -49,6 +49,10 @@ decisions made per asset.
 - A Backrooms environment normally uses researched visual grammar plus
   procedural modular construction; it does not need an automatic turnaround or
   Meshy model.
+- A high-occupancy landmark, tower, machine, vehicle, or product hero needs
+  source/reference coverage or Image2 multi-view evidence before modeling, then
+  a part-by-part Three.js assembly. Procedural is allowed only when it is
+  detailed procedural construction, not a coarse stand-in.
 - A Labubu claw machine uses procedural cabinet/mechanics and official identity
   evidence; multi-view Image2/Meshy are considered only if a prominent faithful
   doll model is otherwise unavailable.
