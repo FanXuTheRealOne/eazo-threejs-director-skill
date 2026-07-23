@@ -6,6 +6,7 @@ Literal user request:
 
 Resolved design spec:
 
+- Technical/runtime contract:
 - Product/experience:
 - Prompt fingerprint (subject, adjectives, era/medium, feeling, interaction,
   must-preserve phrases, forbidden drift):
@@ -16,6 +17,18 @@ Resolved design spec:
 - Existing repository/platform contracts:
 - Supported inferences:
 
+## Mechanics and Rules
+
+- Core verbs and inputs:
+- Formal state model:
+- Navigation/pathfinding/physics rules:
+- Rotations/transforms/illusion rules:
+- Dynamic platforms, switches, locks, or mechanisms:
+- Enemies/agents/obstacles:
+- Win/loss/recovery/reset:
+- Debug and automation API:
+- Mechanic-required proof:
+
 ## World and Composition
 
 - Spatial archetype and scale:
@@ -23,20 +36,26 @@ Resolved design spec:
 - Foreground role:
 - Midground role:
 - Background role:
+- Background whitelist, maximum three visual families:
 - Shape and edge language:
 - Density and negative-space rule:
 - Inspection envelope and all-angle completion rule:
 - Desktop composition:
 - Mobile composition:
 - Signature visual moment:
+- Decoration budget and named prop list:
+- Delete-before-polish list:
+- Forbidden background filler:
 
 ## Art Direction
 
 - Visual era/medium/render grammar:
 - Palette roles and value hierarchy:
+- Color grading and tone curve:
 - Temperature counterpoint:
 - Hero/background separation:
 - Material families and observable responses:
+- Per-face/per-part material separation:
 - Texture/wear/detail scale:
 - Motivated light sources and shadow character:
 - Atmosphere/fog/background:
@@ -44,6 +63,19 @@ Resolved design spec:
 - Shader requirements and purpose:
 - Postprocessing requirements and purpose:
 - Forbidden effects:
+
+## Camera Direction
+
+- Camera model and hard constraints:
+- Initial shot and subject visibility:
+- Shot bible table (phase, purpose, start frame, end frame, camera move, subject size, duration, easing, interruption):
+- Drone/crane/dolly/orbit/reveal moves and why each is needed:
+- Composition rule for each shot (foreground/midground/background relationship):
+- Look target, horizon, parallax and scale cues:
+- Bounds, collision, occlusion and recovery:
+- Mobile crop and safe zones:
+- Reduced-motion camera behavior:
+- Camera audit captures:
 
 ## Visual Evidence Decision
 
@@ -73,10 +105,7 @@ Remove this table when the evidence route is `none`.
 
 ## Camera and Interaction
 
-- Camera archetype and initial transform/FOV:
-- Look target and horizon:
 - Controls:
-- Bounds, collision, occlusion, damping:
 - Idle behavior and user takeover:
 - State-triggered shots and recovery:
 - Mobile/touch mapping:
@@ -123,8 +152,11 @@ Remove this section when the request is not a game or playable loop.
 ## Verification Matrix
 
 - Build/type/lint commands:
+- Solver/static proof commands:
+- Browser auto-play commands:
 - Desktop states and camera views:
 - Mobile states and orientation:
+- Screenshot beauty/visibility checks:
 - Cold reload captures:
 - Black-artifact inspection:
 - Console/network/WebGL checks:

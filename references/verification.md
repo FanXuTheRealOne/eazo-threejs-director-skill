@@ -16,6 +16,11 @@ free port, and inspect it in a real browser. Collect:
 - camera/phase/quality telemetry;
 - draw calls, triangles, geometries, textures, DPR, and sustained frame-time.
 
+For rule-heavy games or simulations, run a deterministic proof script before
+browser QA. The proof should use the real level/rule data, check solvability,
+validate requested math constraints, and include a negative case proving that
+the core mechanism is actually required.
+
 Use the bundled scripts when compatible:
 
 ```bash
@@ -44,6 +49,11 @@ behavior, ground contact, shadows, transparency order, near/far clipping,
 backfaces, and control recovery. For authored cameras, capture every state path
 plus interruption and return.
 
+For authored camera work, audit the shot bible in the browser: capture the start
+and end of every major camera beat, then confirm the shot changes subject scale,
+depth relationship, destination, mechanism, hazard, or payoff. A camera that only
+slides to another centered view fails the audit.
+
 ## Visual Review
 
 Inspect full-size and thumbnail captures for:
@@ -55,6 +65,10 @@ Inspect full-size and thumbnail captures for:
 - motivated light, contact shadow, emissive spill, fog/background agreement;
 - palette/value/temperature balance;
 - shader/postprocessing purpose and restraint;
+- refined color grade, no muddy/one-note palette, and no over-saturated effects;
+- every decorative/background object being identifiable and purposeful;
+- no more than the declared background visual families, unless explicitly
+  justified by the spec;
 - stable HUD, text, safe areas, and mobile crop;
 - clipping, z-fighting, floating props, blank planes, accidental occlusion.
 
@@ -75,6 +89,11 @@ Exercise the real controls rather than debug shortcuts:
 - success, failure, reset, and second run for games;
 - resize, orientation, blur/visibility, reduced motion, loading and error paths;
 - no unintended page scroll, zoom, stuck pointer lock, or duplicated audio.
+
+When the request requires complete playthrough proof, expose a debug API such as
+`window.__APP_DEBUG__` with deterministic actions and manual time advancement.
+Use it from a real browser to finish every level/state. Do not accept a solver
+alone when animation, blocking, UI, or camera could still fail in the browser.
 
 ## Cold-Reload Reveal
 

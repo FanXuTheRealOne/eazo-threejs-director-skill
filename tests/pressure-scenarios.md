@@ -7,6 +7,7 @@
 1. `做一个后室风格的交互界面。`
 2. `做一个 Labubu 可爱的娃娃机。`
 3. `做一个以上海为背景的互动场景。`
+4. `参考纪念碑谷做一个等距视错觉解谜网页游戏。`
 
 ### Observed pre-refactor failure
 
@@ -23,6 +24,10 @@ therefore trigger different partial paths:
   were easy to omit because no single artifact owned the complete contract;
 - build/WebGL success could coexist with generic art direction or unfinished
   camera angles.
+- rule-heavy requests could ship without a solver, browser auto-play proof, or
+  a negative proof that the requested mechanism is necessary.
+- generic 3D builds could hide weak composition behind random background
+  geometry and coarse color.
 
 The user also observed that a detailed production prompt without forced
 turnaround/model generation could outperform the more fragmented skill.
@@ -33,11 +38,13 @@ A fresh agent receiving only the skill and one request must:
 
 1. preserve the literal request;
 2. fill one resolved design spec covering experience, hero, depth layers, art,
-   camera, interaction, motion, mobile, performance, reveal, and verification;
+   camera, interaction, mechanics, motion, mobile, performance, reveal, and verification;
 3. make independent per-asset decisions for references, Image2, multi-view, and
    Meshy;
-4. fill one production prompt and remove unused sections/placeholders;
-5. implement and verify against that one prompt rather than assembling parallel
+4. define deliberate camera choreography, color grading, decoration budget, and
+   named background props instead of static/default camera and filler shapes;
+5. fill one production prompt and remove unused sections/placeholders;
+6. implement and verify against that one prompt rather than assembling parallel
    mini-plans.
 
 ### Expected route: 后室
@@ -68,13 +75,31 @@ A fresh agent receiving only the skill and one request must:
 - Meshy only for a justified high-occupancy asset, not the entire skyline;
 - procedural/sourced modular city construction remains the default.
 
+### Expected route: isometric impossible-geometry puzzle
+
+- preserve hard technical constraints such as single HTML, exact Three.js
+  version, orthographic/isometric camera direction, and forbidden controls;
+- model grid heights, BFS/pathing, rotations, illusion links, elevators, enemies,
+  stairs, levels, win states and debug API as real executable rules;
+- write a Node state-space solver that proves every level is solvable, validates
+  illusion-link math, and proves the goal is unreachable without the core
+  mechanism;
+- browser auto-play all levels through debug hooks and manual time advancement;
+- verify screenshots for start visibility, no occlusion, refined palette,
+  purposeful named decorations, and no random background filler.
+
 ## Production Prompt Quality Gate
 
 The compiled prompt is incomplete if it omits any of these:
 
 - first-frame hero composition and foreground/midground/background roles;
+- explicit technical stack/runtime/camera constraints;
+- concrete mechanics/rules/state model and debug automation API;
 - camera archetype, inspection envelope, all-angle completion and recovery;
+- authored camera shot list with drone/crane/dolly/reveal/tracking where allowed;
 - differentiated materials, motivated light, purposeful shaders/post;
+- deliberate color grade, value hierarchy, temperature counterpoint and no
+  meaningless background clutter;
 - primary and secondary motion;
 - meaningful interaction states or mature game loop;
 - desktop/mobile/touch/safe-area/reduced-motion behavior;

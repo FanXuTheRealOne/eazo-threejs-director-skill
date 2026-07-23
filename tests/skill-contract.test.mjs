@@ -32,9 +32,19 @@ test('the production prompt closes visual, camera, performance, reveal, mobile, 
   assert.match(prompt, /CURRENT working directory/);
   assert.match(prompt, /index\.html/);
   assert.match(prompt, /hero composition/i);
+  assert.match(prompt, /Technical\/runtime contract/i);
+  assert.match(prompt, /Mechanics and rules/i);
+  assert.match(prompt, /Camera direction/i);
   assert.match(prompt, /foreground.*midground.*background/is);
   assert.match(prompt, /inspection envelope/i);
   assert.match(prompt, /all.*angles/is);
+  assert.match(prompt, /camera director/i);
+  assert.match(prompt, /drone|crane|dolly/i);
+  assert.match(prompt, /Shot bible/i);
+  assert.match(prompt, /start composition/i);
+  assert.match(prompt, /end composition/i);
+  assert.match(prompt, /subject size/i);
+  assert.match(prompt, /Camera audit/i);
   assert.match(prompt, /secondary motion/i);
   assert.match(prompt, /desktop.*mobile/is);
   assert.match(prompt, /touch/i);
@@ -51,6 +61,12 @@ test('the production prompt closes visual, camera, performance, reveal, mobile, 
   assert.match(prompt, /actual rendered frames/i);
   assert.match(prompt, /fixed timer/i);
   assert.match(prompt, /plausible base color/i);
+  assert.match(prompt, /solver|state-space/i);
+  assert.match(prompt, /debug automation API/i);
+  assert.match(prompt, /random.*geometry|filler shapes|abstract geometry/is);
+  assert.match(prompt, /background.*whitelist/is);
+  assert.match(prompt, /at most three/i);
+  assert.match(prompt, /value ladder|temperature counterpoint/i);
 
   assert.match(prompt, /cold reload/i);
   assert.match(prompt, /0\.3.*1.*3/is);
@@ -87,6 +103,18 @@ test('the unified template preserves mature interaction and reference-derived re
   ]);
 
   assert.match(spec, /camera/i);
+  assert.match(spec, /Technical\/runtime contract/i);
+  assert.match(spec, /Mechanics and Rules/i);
+  assert.match(spec, /Camera Direction/i);
+  assert.match(spec, /Shot bible table/i);
+  assert.match(spec, /Camera audit captures/i);
+  assert.match(spec, /Background whitelist/i);
+  assert.match(spec, /Delete-before-polish/i);
+  assert.match(spec, /Debug and automation API/i);
+  assert.match(spec, /Mechanic-required proof/i);
+  assert.match(spec, /Decoration budget/i);
+  assert.match(spec, /Forbidden background filler/i);
+  assert.match(spec, /Color grading/i);
   assert.match(spec, /prompt fingerprint/i);
   assert.match(spec, /reference scorecard/i);
   assert.match(spec, /render translation ledger/i);
@@ -108,6 +136,10 @@ test('the unified template preserves mature interaction and reference-derived re
   assert.match(verification, /palette/i);
   assert.match(verification, /material/i);
   assert.match(verification, /tone mapping/i);
+  assert.match(verification, /debug API/i);
+  assert.match(verification, /negative case/i);
+  assert.match(verification, /shot bible/i);
+  assert.match(verification, /declared background visual families/i);
 });
 
 test('the main skill and reference surface stay deliberately small', async () => {

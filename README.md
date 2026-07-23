@@ -9,16 +9,37 @@ browser result.
 ```text
 one-line request
 -> resolved design spec
+-> mechanics/camera/visual scaffold contract
 -> conditional evidence/asset decisions
 -> one production prompt
 -> browser implementation
--> cold-start, multi-angle, mobile and performance repair loop
+-> solver/static proof when rules require it
+-> browser auto-play, screenshots, cold-start, mobile and performance repair loop
 ```
 
 The single production prompt owns scene composition, camera, interaction,
 materials, light, motion, shaders, postprocessing, responsive behavior,
 performance, artifact-free reveal, and visual QA. Supporting references do not
 define competing workflows.
+
+## Scaffold-Level Expansion
+
+Every request is expanded with the same precision as a strong production
+scaffold:
+
+- technical stack, camera model, forbidden controls/libraries, debug hooks;
+- executable mechanics, state machines, pathing/physics/puzzle rules and reset;
+- camera direction with authored establishing, reveal, tracking, drone/crane,
+  dolly/orbit/inspection and recovery beats where allowed;
+- refined palette, value hierarchy, temperature counterpoint, material/face
+  separation, fog/sky/water/effect integration and UI style;
+- verification through solver/static proof for rule-heavy work, browser
+  auto-play/debug APIs, screenshot review, visibility checks and negative proof
+  that the core mechanism is required.
+
+Background detail must be intentional. The prompt now rejects random filler
+geometry, abstract clutter, and unidentifiable shapes that cannot be named in
+the spec and validated in screenshots.
 
 ## Conditional Media Generation
 
@@ -87,7 +108,8 @@ node /path/to/skill/scripts/verify-webgl.mjs \
   --url http://127.0.0.1:3000 --out artifacts/visual-qa
 ```
 
-The final gate includes real interaction, desktop/mobile captures, camera
-extremes, reference/spec comparison, sustained frame time, and cold-reload
-inspection for black blocks, bars, loading veils, placeholder geometry,
-untextured materials, and half-compiled effects.
+The final gate includes real interaction, solver/static proof when applicable,
+desktop/mobile captures, camera extremes, reference/spec comparison, sustained
+frame time, deliberate color/decoration review, and cold-reload inspection for
+black blocks, bars, loading veils, placeholder geometry, untextured materials,
+and half-compiled effects.

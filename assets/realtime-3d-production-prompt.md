@@ -16,6 +16,8 @@ code-complete state: run it, inspect it, exercise it, capture it, and repair it.
 
 ## Resolved design spec
 
+Technical/runtime contract: {{TECHNICAL_STACK_CAMERA_LIBRARY_VERSION_DELIVERABLE_AND_FORBIDDEN_LIBRARIES}}
+
 Experience: {{EXPERIENCE_AND_AUDIENCE}}
 
 First-five-seconds promise: {{FIRST_FIVE_SECONDS}}
@@ -41,6 +43,57 @@ Shader and postprocessing: {{ONLY_EFFECTS_WITH_A_DEFINED_VISUAL_JOB}}
 Signature moment: {{MEMORABLE_WORLD_EVENT}}
 
 Desktop/mobile composition: {{RESPONSIVE_CROP_AND_CONTROL_SAFE_ZONES}}
+
+## Mechanics and rules
+
+Core verbs and inputs: {{CORE_VERBS_INPUTS_AND_CONTROL_CONTRACT}}
+
+Formal state model: {{STATE_MODEL_LEVELS_PHASES_ACTORS_MECHANISMS_AND_RESET}}
+
+Rules and algorithms: {{PATHFINDING_PHYSICS_PUZZLE_ROTATION_ILLUSION_AI_OR_SIMULATION_RULES}}
+
+Win/loss/recovery/debug API: {{WIN_LOSS_RECOVERY_RESET_AND_DEBUG_AUTOMATION_API}}
+
+Mechanic-required proof: {{SOLVER_STATIC_PROOF_NEGATIVE_PROOF_AND_REQUIRED_MECHANISM_EVIDENCE}}
+
+Every rule above must become executable behavior. If the request names a BFS,
+state-space solver, geometric constraint, enemy blocking rule, elevator lock,
+camera direction, or debug API, implement it literally and verify it. Do not
+fake puzzle/game depth with animation-only transitions.
+
+## Camera direction
+
+Camera model and hard constraints: {{CAMERA_MODEL_ORTHOGRAPHIC_PERSPECTIVE_ISOMETRIC_FIXED_FORBIDDEN_CONTROLS}}
+
+Initial shot and visibility: {{INITIAL_CAMERA_POSITION_TARGET_FOV_OR_ZOOM_AND_OCCLUSION_RULE}}
+
+Shot bible: {{PHASE_PURPOSE_START_FRAME_END_FRAME_CAMERA_MOVE_SUBJECT_SIZE_DURATION_EASING_INTERRUPTION_TABLE}}
+
+Composition per shot: {{FOREGROUND_MIDGROUND_BACKGROUND_RELATIONSHIP_FOR_EACH_CAMERA_BEAT}}
+
+Inspection and interruption: {{USER_INSPECTION_BOUNDS_INTERRUPTION_RECOVERY_AND_MOBILE_CROP}}
+
+Camera audit: {{REQUIRED_CAMERA_CAPTURE_STATES_AND_REPAIR_CRITERIA}}
+
+Act as a camera director, not a default-control installer. Use authored motion
+when the experience has scale, tension, discovery, transformation, traversal or
+completion. Good camera work includes establishing composition, subject-leading
+tracking, parallax, reveal timing, softened arrivals, deliberate holds, and
+stable recovery after user input. Use concrete camera moves such as drone,
+crane, dolly, orbit, tracking, push-in, pull-back, overhead reveal, and cutaway
+only when they clarify scale, destination, mechanism, or payoff. If the user mandates a fixed/isometric camera,
+honor that exactly and express drama through object motion, rotation, parallax,
+layering, lighting and UI rhythm instead of illegal camera controls.
+
+Do not implement camera as a few static coordinates. Before coding, write the
+shot bible as a table. Each shot needs a reason, a start composition, an end
+composition, movement type, subject size target, duration, easing, and what
+happens if the user interrupts it. At least three camera beats must visibly
+change depth relationship or scale unless the user has explicitly required a
+fixed camera. Repair any shot that merely re-centers the subject without
+revealing new information, scale, tension, or interaction consequence.
+The shot bible must explicitly label `start composition` and `end composition`
+for each camera beat.
 
 ## Visual evidence and asset decisions
 
@@ -95,29 +148,26 @@ authored first frame and hero composition before secondary detail.
 - Build the back, sides, undersides, room shell, and occluded areas throughout
   the declared inspection envelope. No one-sided stage set, head-on billboard,
   missing backfaces, floating object, arbitrary safety floor, or black placeholder.
+- Keep background and decoration disciplined. Every decorative object must have
+  a name, a visual role, a scale, and a validation view. Do not scatter random
+  abstract geometry, unreadable towers, floating strips, unrelated props, or
+  filler shapes just to make the scene look busy.
+- Treat background as a whitelist, not a dumping ground. Use at most three
+  background visual families unless the user explicitly asks for a dense world.
+  Each family must support silhouette, depth, navigation, scale, or atmosphere.
+  If an object is not visible in the shot bible, does not affect parallax, and
+  cannot be named in the handoff, delete it before adding polish.
+- Finish the grade. Define a clear value ladder, temperature counterpoint,
+  saturation restraint, material-specific roughness/metalness/transmission,
+  shadow softness, fog color, sky relationship, and UI glass/solid style.
+  Coarse, muddy, one-note, or over-saturated color is a repair issue.
 
 For cutaways/interiors, honor this occlusion solution:
 {{AZIMUTH_LIMITS_WALL_FADE_HIDE_OR_CAMERA_COLLISION_RULE}}
 
-## Camera and interaction
-
-Camera archetype: {{ORBIT_FIRST_PERSON_THIRD_PERSON_FIXED_OR_STATE_DIRECTED}}
-
-Initial camera/target/FOV: {{INITIAL_TRANSFORM_TARGET_FOV_AND_HORIZON}}
+## Interaction feedback
 
 Controls: {{DESKTOP_KEYBOARD_POINTER_WHEEL_AND_TOUCH_MAPPING}}
-
-Inspection envelope: {{AZIMUTH_POLAR_DISTANCE_PAN_COLLISION_AND_OCCLUSION_BOUNDS}}
-
-Camera motion grammar: {{DAMPING_IDLE_BEHAVIOR_STATE_SHOTS_SHAKE_AND_RECOVERY}}
-
-The camera must preserve orientation, hero visibility, and finite transforms.
-Default library controls are not camera direction. If free orbit is requested,
-drag to orbit, scroll/pinch to zoom, right-drag/two-finger to pan where useful,
-apply damping and sensible bounds, finish geometry from all visible angles, and
-yield any idle auto-rotation immediately on user input. If the camera is
-authored/state-based, every transition needs a trigger, target, duration,
-easing, exit, interruption behavior, and stable recovery.
 
 Interaction state machine: {{BOOT_READY_ACTIVE_RESOLVING_RESULT_RECOVERY_STATES}}
 
@@ -142,6 +192,11 @@ reward/progression, escalation/variation, and next decision. Implement failure,
 recovery, reset, and replay so a second run can differ. Teach the primary verb
 through play rather than a blocking instruction card. Exercise a representative
 three-minute slice including success, failure/recovery, and replay.
+
+For puzzle games and rule-heavy simulations, write and run a deterministic
+verification script. Model state-space using the real rules, prove every level
+or scenario is solvable, validate requested math/geometric constraints, and
+prove the goal is not reachable when the core mechanism is disabled.
 
 ## Motion and atmosphere
 
@@ -234,6 +289,11 @@ and iterate.
 Required verification:
 
 - run all available lint, type, test, and production build checks;
+- run custom solver/static verification for rule-heavy games, puzzles,
+  simulations, geometry constraints, generated level sets, or AI pathing;
+- expose a debug automation API when browser auto-play is required, then use it
+  in a real browser to complete all levels/states instead of relying on manual
+  confidence;
 - capture the authored default frame and every primary/signature/result state;
 - capture multiple azimuths, elevations, distances, pans, and zoom levels across
   the full inspection envelope; verify finished backs/sides, contact, shadows,

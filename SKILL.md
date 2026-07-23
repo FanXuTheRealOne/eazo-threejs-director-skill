@@ -8,6 +8,9 @@ description: Use when building or directing a realtime 3D website, game, product
 Turn even a one-line request into one complete browser experience through a
 single production prompt. The prompt template is the source of truth; do not
 assemble competing mini-workflows for camera, art, models, gameplay, and QA.
+Every request must be expanded with scaffold-level precision: runtime contract,
+interaction/game systems, camera direction, visual finish, asset route, and
+verification proof.
 
 ## Required Files
 
@@ -33,9 +36,10 @@ deliverable rooted in the current directory with `index.html` as its entry.
 
 Preserve the user's exact words. Fill `assets/design-spec-template.md` using
 `references/prompt-compiler.md`. Resolve missing art direction, spatial design,
-hero hierarchy, camera, interaction, motion, rendering, performance, responsive
-behavior, loading, and verification through informed inference. Ask only when a
-missing choice would materially change the product and cannot be inferred.
+hero hierarchy, camera grammar, interaction/game mechanics, motion, rendering,
+palette, decoration discipline, performance, responsive behavior, loading, and
+verification through informed inference. Ask only when a missing choice would
+materially change the product and cannot be inferred.
 
 Write the resolved spec to `docs/eazo-design-spec.md`. It must contain no TODO,
 TBD, unused branch, or unresolved placeholder.
@@ -76,12 +80,15 @@ change, update the design spec and compiled production prompt first.
 Implement in this order:
 
 1. app shell, authored first camera, controls, loading/reveal path;
-2. hero silhouette and foreground/midground/background composition;
-3. complete interaction state or mature game loop;
-4. material separation, motivated lighting, environment depth;
-5. secondary motion, signature moment, sound, shader/postprocessing;
-6. all-angle completion, mobile controls, reduced motion, quality tiers;
-7. cold-start, browser, performance, and visual repair loop.
+2. hero silhouette and purposeful foreground/midground/background composition;
+3. complete interaction state, puzzle model, simulation, or mature game loop;
+4. camera choreography as a director: establishing shot, tracking, reveal,
+   orbit/inspection, cutaway/drone/crane moves, recovery, and mobile crop;
+5. refined palette, material separation, motivated lighting, atmosphere, and
+   restrained decoration that identifies itself and serves the scene;
+6. secondary motion, signature moment, sound, shader/postprocessing;
+7. all-angle completion, mobile controls, reduced motion, quality tiers;
+8. cold-start, browser, performance, and visual repair loop.
 
 Run and inspect the scene after every major pass. Code volume, a successful
 build, or a visible canvas is not visual evidence.
@@ -109,11 +116,22 @@ Do not finish when any of these is true:
   unfinished back/side inside its inspection envelope;
 - visually important objects remain generic primitives where silhouette or
   surface identity matters;
+- the background contains random filler geometry, abstract clutter, or shapes
+  that do not read as an intended prop, architecture, landscape, UI, or effect;
 - materials, lights, shaders, or post effects are indistinguishable, arbitrary,
   or unsupported by the resolved art direction/reference role;
+- camera work is a static default view when the experience calls for authored
+  motion, reveal, scale, tension, inspection, or cinematic progression;
+- camera work lacks a shot bible with purpose, start/end composition, movement,
+  subject size, duration, easing, interruption and browser capture audit;
+- the background exceeds its declared whitelist or includes objects that do not
+  support silhouette, depth, navigation, scale, atmosphere, or interaction;
+- palette and tone mapping feel coarse, muddy, over-saturated, or one-note
+  instead of deliberately graded with clear value and temperature hierarchy;
 - Image2, a turnaround, or Meshy was used because it was available rather than
   because the asset-routing decision required it;
-- a game lacks decisions, consequences, escalation, failure/recovery, or replay;
+- a game, puzzle, or simulator lacks rules, decisions, consequences,
+  state-space reasoning, failure/recovery, replay, or required proof;
 - touch, safe areas, reduced motion, loading, error, and quality fallbacks fail;
 - cold reveal flashes black, placeholders, incomplete textures, uncompiled
   materials, loading veils, safety planes, or letterbox bands;

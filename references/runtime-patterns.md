@@ -40,12 +40,29 @@ Keep near/far planes tight enough for precision. Clamp polar/azimuth/distance/pa
 to the actual constructed world. Test every allowed angle rather than only the
 opening screenshot.
 
+Direct the camera like a shot system. Define establishing, traversal, reveal,
+inspection, result and recovery shots with target, position, FOV/zoom, duration,
+easing and interruption behavior. Use drone/crane/dolly/parallax language when
+the product benefits from scale or discovery. If a prompt mandates a fixed
+orthographic/isometric view, lock it exactly and create drama through world
+rotation, object motion, light sweeps, UI cadence and depth layering instead of
+illegal camera controls.
+
+Implement camera from a shot bible, not scattered constants. Store shots as data
+with `id`, `purpose`, `from`, `to`, `target`, `subjectSize`, `duration`,
+`easing`, `parallaxLayer`, `interruption`, and `mobileOverride`. Camera motion
+must reveal or clarify something: scale, destination, hazard, transformation,
+mechanism, payoff, or player consequence. Delete shots that only drift for mood.
+
 ## Materials, Light, and Color
 
 - Work in the current Three.js Linear-sRGB pipeline; mark display textures sRGB
   and data maps linear.
 - Start from plausible neutral material values, then tune against the design
   spec or role-specific reference crops.
+- Treat color grading as authored design: establish value hierarchy, temperature
+  counterpoint, saturation restraint, fog/sky agreement, exposure, and state
+  accent colors before adding decorative detail.
 - Use Standard/Physical materials when roughness, metalness, transmission,
   sheen, or clearcoat are real requirements; do not attach unsupported values to
   a shader that ignores them.
@@ -56,6 +73,21 @@ opening screenshot.
   behavior that built-in materials cannot express cleanly.
 - Centralize time/resolution/pointer/state uniforms and update without material
   recreation.
+
+Avoid decorative noise. Every background object must be legible as a named prop,
+piece of architecture, landscape feature, UI element, particle/effect system, or
+reference-backed visual role. Keep a small whitelist of background families and
+delete random filler geometry before adding more polish. A sparse background with
+excellent camera parallax is better than a busy scene full of unidentifiable
+shapes.
+
+## Rule-Heavy Experiences
+
+For puzzle games, strategy boards, simulations, traffic, pathfinding, physics
+setups, generated levels, or impossible-geometry mechanics, implement the rules
+as data plus pure functions first. Keep a deterministic solver/test path that can
+run in Node. Browser animation should consume the same state transitions rather
+than maintaining a separate approximate ruleset.
 
 ## Motion and Feedback
 

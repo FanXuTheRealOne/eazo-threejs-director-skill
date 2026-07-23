@@ -24,23 +24,27 @@ and neither can be safely inferred.
 Resolve missing information in this order so later choices agree with earlier
 ones:
 
-1. **Experience:** what the user sees and does in the first five seconds.
-2. **Emotional promise:** the intended feeling and the visual contradictions to
+1. **Runtime contract:** deliverable shape, framework/library versions, camera
+   constraints, forbidden libraries, deployment surface, debug/test hooks.
+2. **Experience:** what the user sees and does in the first five seconds.
+3. **Interaction/game rules:** explicit state, inputs, algorithms, constraints,
+   blockers, unlocks, AI/enemies, puzzle rules, proof obligations.
+4. **Emotional promise:** the intended feeling and visual contradictions to
    exclude.
-3. **Hero hierarchy:** focal subject, supporting elements, frame occupancy.
-4. **Spatial composition:** foreground, midground, background, scale, density,
+5. **Hero hierarchy:** focal subject, supporting elements, frame occupancy.
+6. **Spatial composition:** foreground, midground, background, scale, density,
    and all-angle inspection envelope.
-5. **Interaction:** inputs, state transitions, immediate feedback, consequence,
-   recovery.
-6. **Camera:** archetype, initial shot, controls, bounds, motion grammar, mobile.
-7. **Art direction:** palette roles, shape language, material families,
-   motivated lights, atmosphere, shader/post purpose.
-8. **Evidence translation:** prompt fingerprint, reference roles, candidate
+7. **Camera direction:** archetype, initial shot, authored motion beats,
+   drone/crane/dolly/orbit/reveal grammar, bounds, recovery, mobile crop.
+8. **Art direction:** palette roles, value ladder, temperature counterpoint,
+   shape language, material families, motivated lights, atmosphere, shader/post
+   purpose, decoration budget.
+9. **Evidence translation:** prompt fingerprint, reference roles, candidate
    compatibility, and observation-to-runtime render ledger when evidence helps.
-9. **Asset route:** procedural, sourced, generated image, generated 3D, hybrid.
-10. **Runtime:** platform, performance tier, reveal, responsive/accessibility.
-11. **Acceptance evidence:** required screenshots, state captures, performance and cold-load
-    checks.
+10. **Asset route:** procedural, sourced, generated image, generated 3D, hybrid.
+11. **Runtime finish:** performance tier, reveal, responsive/accessibility.
+12. **Acceptance evidence:** solver/static proof, browser auto-play,
+    screenshots, state captures, performance and cold-load checks.
 
 Use numeric ranges and observable relationships when they improve execution.
 Avoid invented precision that has no visual or technical purpose.
@@ -60,6 +64,37 @@ Choose the camera from the experience, not from a default library control:
 For cutaways, decide whether azimuth is limited or walls fade/hide. Never demand
 unrestricted 360-degree orbit around an interior that is only built as a
 front-facing stage.
+
+## Scaffold Precision
+
+When a user provides a detailed scaffold, preserve its headings as the minimum
+quality bar. For future prompts, generate the same level of detail even if the
+user is brief:
+
+- **Technical stack:** exact runtime, camera model, libraries to use/avoid,
+  coordinate convention, debug API, build shape.
+- **Core mechanics:** every rule must be stated as executable logic, including
+  pathfinding, physics, puzzle constraints, AI blocking, rotations, elevators,
+  state machines, win/loss and reset.
+- **Camera:** specify shot list and motion grammar as if directing a film:
+  establishing, guided tracking, reveal, drone/crane/dolly/parallax, inspection,
+  interruption and recovery. Default camera controls are not direction.
+- **Shot bible:** for every important phase, write purpose, start frame, end
+  frame, movement type, subject size, duration, easing, foreground/midground/
+  background relationship, and interruption behavior. If that table is weak,
+  improve it before coding.
+- **Visual finish:** palette per scene/state, face/material separation, light
+  sources, tone mapping, fog/sky integration, water/particles/effects, UI style,
+  and decoration roles.
+- **Verification:** include algorithmic proof for puzzles/games when feasible,
+  browser auto-play/debug hooks, screenshot matrix, visibility and obstruction
+  checks, and negative proof that the core mechanism is actually required.
+
+Background decoration must be intentional and sparse. Treat it as a whitelist:
+normally no more than three visual families, each serving silhouette, depth,
+navigation, scale, or atmosphere. Do not add random floating geometry, orbs,
+meaningless ruins, filler towers, abstract strips, or shapes that cannot be
+named in the spec and validated in screenshots.
 
 ## Examples
 
